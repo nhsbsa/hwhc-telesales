@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% set pageName = 'Configure prototype' %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        <h1 class="nhsuk-heading-l">{{ pageName }}</h1>
+
+        <form action="index" method="post" novalidate>
+
+            {{ radios({
+                idPrefix: 'role',
+                name: 'role',
+                fieldset: {
+                    legend: {
+                    text: 'Which role will you be using?',
+                    classes: 'nhsuk-fieldset__legend--s',
+                    isPageHeading: false
+                    }
+                },
+                items: [
+                    {
+                        value: 'callCentre',
+                        text: 'Call centre'
+                    },
+                    {
+                        value: 'backOffice',
+                        text: 'Back-office'
+                    }
+                ]
+            }) }}
+
+            {{ button({
+                text: 'Continue'
+            }) }}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

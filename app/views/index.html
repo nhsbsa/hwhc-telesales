@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+
+{% set pageName = '' %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Help with Health Costs telesales</h1>
+
+
+        {% set prototypeV1TabHTML %}
+
+          <!-- PROTOTYPE TAB V1 -->
+
+          <p>An initial prototype for Help with Health Costs (HwHC) telesales. This first iteration will handle Maternity Exemption (MATEX) cases.</p>
+
+          {{ button({
+            text: 'Launch v1 prototype',
+            href: '/v1/search'
+          }) }}
+
+          <p class="nhsuk-body"><a href="/v1/">Configure v1 prototype</a></p>
+
+        {% endset %}
+
+
+    <h2 class="nhsuk-heading-l">Version 1</h2>
+
+    {{ tabs({
+      id: 'v1Tabs',
+      items: [
+        {
+          label: 'Prototype',
+          id: 'prototypeV1Tab',
+          panel: { html: prototypeV1TabHTML }
+        },
+        {
+          label: 'Page list',
+          id: 'pageListV1Tab',
+          panel: { html: pageListV1TabHTML }
+        }
+      ]
+    }) }}
+
+
+
+    </div>
+  </div>
+{% endblock %}

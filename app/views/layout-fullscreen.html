@@ -1,0 +1,69 @@
+{% extends 'layout.html' %}
+
+{% set containerClasses = 'nhsuk-width-container-fluid' %}
+
+{% block header %}
+
+  {% if data.role === 'backOffice' %}
+
+      {% set account = {
+        items: [
+          {
+            text: data.name or 'James Lattimore',
+            icon: true
+          },
+          { text: 'Back office' },
+          {
+            text: 'Log out',
+            href: '#'
+          }
+        ]
+    } %}
+
+  {% else %}
+
+    {% set account = {
+        items: [
+          {
+            text: data.name or 'James Lattimore',
+            icon: true
+          },
+          { text: 'Call centre' },
+          {
+            text: 'Log out',
+            href: '#'
+          }
+        ]
+    } %}
+
+  {% endif %}
+
+  {{ header({
+    service: {
+      text: serviceName,
+      href: '/'
+    },
+    containerClasses: 'nhsuk-width-container-fluid',
+    account: account
+  }
+  )}}
+
+{% endblock %}
+
+{% block footer %}
+  {{ footer({
+    meta: {
+      items: [
+        {
+          href: '/',
+          text: 'Home'
+        },
+        {
+          href: '/prototype-admin/reset?returnPage=' + (currentPage | urlencode),
+          text: 'Reset data'
+        }
+      ]
+    },
+    containerClasses: 'nhsuk-width-container-fluid'
+  }) }}
+{% endblock %}
