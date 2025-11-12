@@ -1,0 +1,317 @@
+{% set patientData = [{"firstName":"Olivia","lastName":"Smith","nhsNumber":"467 903 2026","certificateType":"MATEX","certificateReference":"22 263 509 319","startDate":"26 March 2025","endDate":"26 December 2026","status":"pending"},{"firstName":"Amelia","lastName":"Jones","nhsNumber":"544 291 9398","certificateType":"MATEX","certificateReference":"79 783 990 439","startDate":"18 December 2024","endDate":"18 September 2026","status":"pending"},{"firstName":"Isla","lastName":"Taylor","nhsNumber":"744 914 8109","certificateType":"MATEX","certificateReference":"57 702 947 377","startDate":"7 February 2025","endDate":"7 November 2026","status":"live"},{"firstName":"Ava","lastName":"Brown","nhsNumber":"442 976 8868","certificateType":"MATEX","certificateReference":"61 440 818 518","startDate":"3 February 2025","endDate":"3 November 2026","status":"pending"},{"firstName":"Emily","lastName":"Williams","nhsNumber":"296 540 1315","certificateType":"MATEX","certificateReference":"28 564 645 832","startDate":"27 February 2025","endDate":"27 November 2026","status":"live"},{"firstName":"Sophia","lastName":"Wilson","nhsNumber":"110 102 3555","certificateType":"MATEX","certificateReference":"80 513 574 567","startDate":"23 February 2025","endDate":"23 November 2026","status":"live"},{"firstName":"Mia","lastName":"Davies","nhsNumber":"979 623 242","certificateType":"MATEX","certificateReference":"98 223 377 695","startDate":"4 January 2025","endDate":"4 October 2026","status":"pending"},{"firstName":"Ella","lastName":"Evans","nhsNumber":"596 578 3929","certificateType":"MATEX","certificateReference":"64 380 709 100","startDate":"6 April 2025","endDate":"6 January 2027","status":"live"},{"firstName":"Grace","lastName":"Thomas","nhsNumber":"846 110 9706","certificateType":"MATEX","certificateReference":"44 153 833 411","startDate":"20 December 2024","endDate":"20 September 2026","status":"pending"},{"firstName":"Lily","lastName":"Roberts","nhsNumber":"289 416 7646","certificateType":"MATEX","certificateReference":"36 414 870 7","startDate":"19 April 2025","endDate":"19 January 2027","status":"live"},{"firstName":"Freya","lastName":"Johnson","nhsNumber":"956 142 4767","certificateType":"MATEX","certificateReference":"61 469 970 28","startDate":"23 December 2024","endDate":"23 September 2026","status":"live"},{"firstName":"Charlotte","lastName":"Lewis","nhsNumber":"673 868 4982","certificateType":"MATEX","certificateReference":"25 513 543 862","startDate":"1 January 2025","endDate":"1 October 2026","status":"pending"},{"firstName":"Isabella","lastName":"Walker","nhsNumber":"682 776 7303","certificateType":"MATEX","certificateReference":"35 543 235 934","startDate":"24 January 2025","endDate":"24 October 2026","status":"live"},{"firstName":"Daisy","lastName":"Hall","nhsNumber":"169 325 0437","certificateType":"MATEX","certificateReference":"97 806 227 518","startDate":"6 May 2025","endDate":"6 February 2027","status":"live"},{"firstName":"Evie","lastName":"Clarke","nhsNumber":"937 940 4867","certificateType":"MATEX","certificateReference":"22 409 310 077","startDate":"15 March 2025","endDate":"15 December 2026","status":"live"},{"firstName":"Phoebe","lastName":"Allen","nhsNumber":"852 529 5453","certificateType":"MATEX","certificateReference":"63 137 695 417","startDate":"21 December 2024","endDate":"21 September 2026","status":"live"},{"firstName":"Sophie","lastName":"Young","nhsNumber":"758 105 889","certificateType":"MATEX","certificateReference":"38 110 446 546","startDate":"5 May 2025","endDate":"5 February 2027","status":"pending"},{"firstName":"Harper","lastName":"King","nhsNumber":"972 885 082","certificateType":"MATEX","certificateReference":"13 702 356 987","startDate":"28 January 2025","endDate":"28 October 2026","status":"live"},{"firstName":"Millie","lastName":"Wright","nhsNumber":"607 428 0533","certificateType":"MATEX","certificateReference":"13 145 224 909","startDate":"10 May 2025","endDate":"10 February 2027","status":"pending"},{"firstName":"Ella-Rose","lastName":"Green","nhsNumber":"722 578 4984","certificateType":"MATEX","certificateReference":"17 186 867 354","startDate":"17 January 2025","endDate":"17 October 2026","status":"pending"},{"firstName":"Poppy","lastName":"Baker","nhsNumber":"914 367 9537","certificateType":"MATEX","certificateReference":"32 230 373 052","startDate":"19 December 2024","endDate":"19 September 2026","status":"live"},{"firstName":"Ruby","lastName":"Adams","nhsNumber":"357 733 3978","certificateType":"MATEX","certificateReference":"91 052 509 781","startDate":"3 January 2025","endDate":"3 October 2026","status":"pending"},{"firstName":"Chloe","lastName":"Mitchell","nhsNumber":"635 151 2960","certificateType":"MATEX","certificateReference":"86 623 553 516","startDate":"28 November 2024","endDate":"28 August 2026","status":"pending"},{"firstName":"Sienna","lastName":"Turner","nhsNumber":"151 386 4724","certificateType":"MATEX","certificateReference":"30 995 040 304","startDate":"12 March 2025","endDate":"12 December 2026","status":"live"},{"firstName":"Willow","lastName":"Carter","nhsNumber":"134 709 5962","certificateType":"MATEX","certificateReference":"76 185 076 343","startDate":"27 April 2025","endDate":"27 January 2027","status":"live"},{"firstName":"Jessica","lastName":"Morris","nhsNumber":"238 951 3046","certificateType":"MATEX","certificateReference":"77 340 352 814","startDate":"19 November 2024","endDate":"19 August 2026","status":"pending"},{"firstName":"Matilda","lastName":"Hughes","nhsNumber":"628 391 9862","certificateType":"MATEX","certificateReference":"16 500 780 904","startDate":"22 December 2024","endDate":"22 September 2026","status":"live"},{"firstName":"Elsie","lastName":"Ward","nhsNumber":"501 323 7904","certificateType":"MATEX","certificateReference":"16 767 253 605","startDate":"6 January 2025","endDate":"6 October 2026","status":"pending"},{"firstName":"Rosie","lastName":"Price","nhsNumber":"773 886 7100","certificateType":"MATEX","certificateReference":"55 939 683 ","startDate":"15 November 2024","endDate":"15 August 2026","status":"live"},{"firstName":"Aria","lastName":"Cooper","nhsNumber":"763 579 9209","certificateType":"MATEX","certificateReference":"41 993 143 427","startDate":"15 November 2024","endDate":"15 August 2026","status":"pending"},{"firstName":"Layla","lastName":"Bailey","nhsNumber":"331 234 7538","certificateType":"MATEX","certificateReference":"68 791 839 872","startDate":"22 April 2025","endDate":"22 January 2027","status":"live"},{"firstName":"Luna","lastName":"Parker","nhsNumber":"114 436 783","certificateType":"MATEX","certificateReference":"84 245 899 618","startDate":"25 March 2025","endDate":"25 December 2026","status":"pending"},{"firstName":"Hannah","lastName":"Phillips","nhsNumber":"724 021 6530","certificateType":"MATEX","certificateReference":"97 537 010 021","startDate":"23 February 2025","endDate":"23 November 2026","status":"live"},{"firstName":"Zara","lastName":"Bennett","nhsNumber":"825 775 1604","certificateType":"MATEX","certificateReference":"74 153 170 514","startDate":"22 December 2024","endDate":"22 September 2026","status":"pending"},{"firstName":"Florence","lastName":"Cox","nhsNumber":"634 237 1006","certificateType":"MATEX","certificateReference":"20 482 845 395","startDate":"11 November 2024","endDate":"11 August 2026","status":"live"},{"firstName":"Maya","lastName":"Richardson","nhsNumber":"677 556 4661","certificateType":"MATEX","certificateReference":"61 229 873 13","startDate":"31 January 2025","endDate":"31 October 2026","status":"live"},{"firstName":"Esme","lastName":"Gray","nhsNumber":"590 128 2910","certificateType":"MATEX","certificateReference":"26 551 594 283","startDate":"9 May 2025","endDate":"9 February 2027","status":"pending"},{"firstName":"Ivy","lastName":"Ross","nhsNumber":"514 642 5919","certificateType":"MATEX","certificateReference":"15 951 774 864","startDate":"4 April 2025","endDate":"4 January 2027","status":"live"},{"firstName":"Arabella","lastName":"Bell","nhsNumber":"212 885 072","certificateType":"MATEX","certificateReference":"65 834 381 78","startDate":"17 April 2025","endDate":"17 January 2027","status":"live"},{"firstName":"Evelyn","lastName":"Cook","nhsNumber":"611 433 7660","certificateType":"MATEX","certificateReference":"78 674 802 551","startDate":"24 November 2024","endDate":"24 August 2026","status":"pending"},{"firstName":"Thea","lastName":"Watson","nhsNumber":"962 613 6024","certificateType":"MATEX","certificateReference":"83 796 957 13","startDate":"7 March 2025","endDate":"7 December 2026","status":"pending"},{"firstName":"Alice","lastName":"Sanders","nhsNumber":"400 749 8202","certificateType":"MATEX","certificateReference":"77 209 880 98","startDate":"9 April 2025","endDate":"9 January 2027","status":"pending"},{"firstName":"Emma","lastName":"Harrison","nhsNumber":"472 074 4045","certificateType":"MATEX","certificateReference":"60 584 325 684","startDate":"22 November 2024","endDate":"22 August 2026","status":"live"},{"firstName":"Lottie","lastName":"Coleman","nhsNumber":"604 995 3115","certificateType":"MATEX","certificateReference":"97 798 115 416","startDate":"3 March 2025","endDate":"3 December 2026","status":"live"},{"firstName":"Amber","lastName":"Murphy","nhsNumber":"693 399 4857","certificateType":"MATEX","certificateReference":"43 659 871 374","startDate":"7 March 2025","endDate":"7 December 2026","status":"live"},{"firstName":"Scarlett","lastName":"Graham","nhsNumber":"592 585 5812","certificateType":"MATEX","certificateReference":"53 653 418 602","startDate":"9 January 2025","endDate":"9 October 2026","status":"live"},{"firstName":"Bonnie","lastName":"Stevens","nhsNumber":"276 832 0035","certificateType":"MATEX","certificateReference":"89 712 553 024","startDate":"28 April 2025","endDate":"28 January 2027","status":"pending"},{"firstName":"Imogen","lastName":"Simpson","nhsNumber":"489 050 6522","certificateType":"MATEX","certificateReference":"98 199 187 076","startDate":"17 March 2025","endDate":"17 December 2026","status":"live"},{"firstName":"Harriet","lastName":"Butler","nhsNumber":"275 180 23","certificateType":"MATEX","certificateReference":"83 734 182 278","startDate":"15 November 2024","endDate":"15 August 2026","status":"live"},{"firstName":"Eleanor","lastName":"Chapman","nhsNumber":"426 950 714","certificateType":"MATEX","certificateReference":"49 190 911 081","startDate":"27 December 2024","endDate":"27 September 2026","status":"pending"},{"firstName":"Aisha","lastName":"Ali","nhsNumber":"774 864 0126","certificateType":"MATEX","certificateReference":"12 959 598 551","startDate":"20 February 2025","endDate":"20 November 2026","status":"pending"},{"firstName":"Sofia","lastName":"Hussain","nhsNumber":"914 484 2170","certificateType":"MATEX","certificateReference":"50 241 582 777","startDate":"21 April 2025","endDate":"21 January 2027","status":"live"},{"firstName":"Amira","lastName":"Khan","nhsNumber":"340 586 511","certificateType":"MATEX","certificateReference":"51 178 052 469","startDate":"18 March 2025","endDate":"18 December 2026","status":"live"},{"firstName":"Leah","lastName":"Begum","nhsNumber":"721 071 9656","certificateType":"MATEX","certificateReference":"59 992 287 914","startDate":"19 March 2025","endDate":"19 December 2026","status":"live"},{"firstName":"Niamh","lastName":"O’Connor","nhsNumber":"566 350 6030","certificateType":"MATEX","certificateReference":"43 660 987 411","startDate":"2 December 2024","endDate":"2 September 2026","status":"pending"},{"firstName":"Aoife","lastName":"Kelly","nhsNumber":"412 648 348","certificateType":"MATEX","certificateReference":"47 963 739 874","startDate":"30 November 2024","endDate":"30 August 2026","status":"pending"},{"firstName":"Erin","lastName":"McCarthy","nhsNumber":"573 265 6906","certificateType":"MATEX","certificateReference":"58 594 708 012","startDate":"20 April 2025","endDate":"20 January 2027","status":"live"},{"firstName":"Orla","lastName":"Doyle","nhsNumber":"138 492 0496","certificateType":"MATEX","certificateReference":"24 684 293 657","startDate":"8 January 2025","endDate":"8 October 2026","status":"pending"},{"firstName":"Cerys","lastName":"Griffiths","nhsNumber":"645 054 0104","certificateType":"MATEX","certificateReference":"14 271 362 999","startDate":"8 February 2025","endDate":"8 November 2026","status":"pending"},{"firstName":"Megan","lastName":"Rees","nhsNumber":"990 954 9154","certificateType":"MATEX","certificateReference":"89 929 475 783","startDate":"22 November 2024","endDate":"22 August 2026","status":"pending"},{"firstName":"Ffion","lastName":"Evans","nhsNumber":"292 777 2596","certificateType":"MATEX","certificateReference":"12 033 955 383","startDate":"8 May 2025","endDate":"8 February 2027","status":"live"},{"firstName":"Eilidh","lastName":"MacDonald","nhsNumber":"386 417 3872","certificateType":"MATEX","certificateReference":"44 838 005 910","startDate":"12 November 2024","endDate":"12 August 2026","status":"live"},{"firstName":"Skye","lastName":"Fraser","nhsNumber":"527 760 5930","certificateType":"MATEX","certificateReference":"44 883 229 911","startDate":"7 April 2025","endDate":"7 January 2027","status":"live"},{"firstName":"Maisie","lastName":"Armstrong","nhsNumber":"549 047 7194","certificateType":"MATEX","certificateReference":"84 296 929 055","startDate":"9 March 2025","endDate":"9 December 2026","status":"live"},{"firstName":"Penelope","lastName":"Hunter","nhsNumber":"449 583 2472","certificateType":"MATEX","certificateReference":"71 857 732 513","startDate":"9 March 2025","endDate":"9 December 2026","status":"pending"},{"firstName":"Clara","lastName":"Lawrence","nhsNumber":"172 079 3654","certificateType":"MATEX","certificateReference":"13 256 182 455","startDate":"21 December 2024","endDate":"21 September 2026","status":"live"},{"firstName":"Beatrice","lastName":"Spencer","nhsNumber":"680 568 6627","certificateType":"MATEX","certificateReference":"39 185 048 303","startDate":"10 May 2025","endDate":"10 February 2027","status":"pending"},{"firstName":"Nancy","lastName":"Rogers","nhsNumber":"829 307 6606","certificateType":"MATEX","certificateReference":"49 983 532 657","startDate":"5 January 2025","endDate":"5 October 2026","status":"live"},{"firstName":"Annabelle","lastName":"Watts","nhsNumber":"377 411 3036","certificateType":"MATEX","certificateReference":"44 425 281 674","startDate":"17 February 2025","endDate":"17 November 2026","status":"live"},{"firstName":"Heidi","lastName":"Henderson","nhsNumber":"879 935 4290","certificateType":"MATEX","certificateReference":"36 308 041 610","startDate":"17 April 2025","endDate":"17 January 2027","status":"pending"},{"firstName":"Rose","lastName":"Palmer","nhsNumber":"236 415 3884","certificateType":"MATEX","certificateReference":"24 410 129 823","startDate":"14 April 2025","endDate":"14 January 2027","status":"pending"},{"firstName":"Lara","lastName":"Nicholson","nhsNumber":"429 932 6437","certificateType":"MATEX","certificateReference":"77 628 297 054","startDate":"12 December 2024","endDate":"12 September 2026","status":"pending"},{"firstName":"Julia","lastName":"Gardner","nhsNumber":"238 088 0911","certificateType":"MATEX","certificateReference":"47 459 363 951","startDate":"5 May 2025","endDate":"5 February 2027","status":"live"},{"firstName":"Ada","lastName":"Newton","nhsNumber":"896 820 2190","certificateType":"MATEX","certificateReference":"53 800 091 760","startDate":"14 April 2025","endDate":"14 January 2027","status":"live"},{"firstName":"Summer","lastName":"Reed","nhsNumber":"127 094 923","certificateType":"MATEX","certificateReference":"54 489 104 309","startDate":"20 April 2025","endDate":"20 January 2027","status":"live"},{"firstName":"Victoria","lastName":"Harvey","nhsNumber":"802 551 2829","certificateType":"MATEX","certificateReference":"22 525 575 393","startDate":"27 January 2025","endDate":"27 October 2026","status":"live"},{"firstName":"Maria","lastName":"Fernandez","nhsNumber":"907 324 4086","certificateType":"MATEX","certificateReference":"60 559 432 42","startDate":"13 February 2025","endDate":"13 November 2026","status":"live"},{"firstName":"Elena","lastName":"Silva","nhsNumber":"126 409 4848","certificateType":"MATEX","certificateReference":"82 305 719 971","startDate":"20 January 2025","endDate":"20 October 2026","status":"live"},{"firstName":"Leila","lastName":"Patel","nhsNumber":"737 734 3089","certificateType":"MATEX","certificateReference":"40 041 862 50","startDate":"22 March 2025","endDate":"22 December 2026","status":"live"},{"firstName":"Fatima","lastName":"Iqbal","nhsNumber":"910 341 0326","certificateType":"MATEX","certificateReference":"94 423 909 759","startDate":"9 April 2025","endDate":"9 January 2027","status":"pending"},{"firstName":"Jasmine","lastName":"Ahmed","nhsNumber":"419 339 4402","certificateType":"MATEX","certificateReference":"63 298 711 55","startDate":"6 May 2025","endDate":"6 February 2027","status":"pending"},{"firstName":"Nadia","lastName":"Rashid","nhsNumber":"635 406 9309","certificateType":"MATEX","certificateReference":"35 877 847 293","startDate":"31 December 2024","endDate":"1 October 2026","status":"live"},{"firstName":"Tara","lastName":"Paterson","nhsNumber":"954 046 3157","certificateType":"MATEX","certificateReference":"57 404 013 224","startDate":"19 April 2025","endDate":"19 January 2027","status":"live"},{"firstName":"Bethany","lastName":"Foster","nhsNumber":"983 326 7007","certificateType":"MATEX","certificateReference":"68 133 527 546","startDate":"8 January 2025","endDate":"8 October 2026","status":"live"},{"firstName":"Lauren","lastName":"Fox","nhsNumber":"906 423 8743","certificateType":"MATEX","certificateReference":"20 315 707 156","startDate":"14 April 2025","endDate":"14 January 2027","status":"pending"},{"firstName":"Georgia","lastName":"Grant","nhsNumber":"138 565 1858","certificateType":"MATEX","certificateReference":"98 851 166 578","startDate":"8 April 2025","endDate":"8 January 2027","status":"live"},{"firstName":"Abigail","lastName":"Murray","nhsNumber":"963 866 5087","certificateType":"MATEX","certificateReference":"70 546 386 601","startDate":"14 March 2025","endDate":"14 December 2026","status":"pending"},{"firstName":"Ella-May","lastName":"West","nhsNumber":"138 249 4154","certificateType":"MATEX","certificateReference":"39 156 223 209","startDate":"8 May 2025","endDate":"8 February 2027","status":"live"},{"firstName":"Robyn","lastName":"Matthews","nhsNumber":"122 614 9501","certificateType":"MATEX","certificateReference":"60 968 641 914","startDate":"19 April 2025","endDate":"19 January 2027","status":"live"},{"firstName":"Kayla","lastName":"Holmes","nhsNumber":"464 295 8417","certificateType":"MATEX","certificateReference":"15 439 736 418","startDate":"10 December 2024","endDate":"10 September 2026","status":"live"},{"firstName":"Lydia","lastName":"Walsh","nhsNumber":"162 458 2298","certificateType":"MATEX","certificateReference":"24 766 320 118","startDate":"16 January 2025","endDate":"16 October 2026","status":"live"},{"firstName":"Alexandra","lastName":"Page","nhsNumber":"584 191 8713","certificateType":"MATEX","certificateReference":"57 009 418 841","startDate":"28 February 2025","endDate":"28 November 2026","status":"live"},{"firstName":"Natalie","lastName":"Jordan","nhsNumber":"784 232 7695","certificateType":"MATEX","certificateReference":"52 631 755 700","startDate":"18 March 2025","endDate":"18 December 2026","status":"pending"},{"firstName":"Beth","lastName":"Barrett","nhsNumber":"274 011 1661","certificateType":"MATEX","certificateReference":"33 654 074 029","startDate":"26 March 2025","endDate":"26 December 2026","status":"live"},{"firstName":"Mollie","lastName":"Hayes","nhsNumber":"861 415 538","certificateType":"MATEX","certificateReference":"54 980 486 207","startDate":"27 November 2024","endDate":"27 August 2026","status":"pending"},{"firstName":"Francesca","lastName":"Cunningham","nhsNumber":"924 222 6100","certificateType":"MATEX","certificateReference":"83 347 691 432","startDate":"10 May 2025","endDate":"10 February 2027","status":"live"},{"firstName":"Amelie","lastName":"Barber","nhsNumber":"415 952 2938","certificateType":"MATEX","certificateReference":"40 651 021 417","startDate":"17 April 2025","endDate":"17 January 2027","status":"live"},{"firstName":"Lucia","lastName":"Knight","nhsNumber":"991 461 4107","certificateType":"MATEX","certificateReference":"23 723 697 763","startDate":"16 January 2025","endDate":"16 October 2026","status":"pending"},{"firstName":"Eden","lastName":"Parsons","nhsNumber":"269 931 460","certificateType":"MATEX","certificateReference":"75 908 464 583","startDate":"19 April 2025","endDate":"19 January 2027","status":"live"},{"firstName":"Tilly","lastName":"Bates","nhsNumber":"596 104 1576","certificateType":"MATEX","certificateReference":"83 483 085 793","startDate":"20 February 2025","endDate":"20 November 2026","status":"pending"},{"firstName":"Holly","lastName":"Day","nhsNumber":"374 535 2425","certificateType":"MATEX","certificateReference":"73 214 264 176","startDate":"4 January 2025","endDate":"4 October 2026","status":"live"},{"firstName":"Indie","lastName":"Francis","nhsNumber":"530 263 4096","certificateType":"MATEX","certificateReference":"41 989 448 296","startDate":"14 March 2025","endDate":"14 December 2026","status":"pending"},{"firstName":"Hope","lastName":"Burton","nhsNumber":"755 030 8533","certificateType":"MATEX","certificateReference":"34 192 310 149","startDate":"24 April 2025","endDate":"24 January 2027","status":"pending"}] %}
+
+{% extends 'layout.html' %}
+
+{% set pageName = 'Fake patient data' %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+          <h1 class="nhsuk-heading-l">{{ pageName }}</h1>
+
+          {{ table({
+            panel: false,
+            caption: 'Exemptions',
+            firstCellIsHeader: false,
+            responsive: true,
+            head: [
+              { text: 'Name' },
+              { text: 'Exemption' },
+              { text: 'Status' },
+              { text: 'Reference' },
+              { text: 'End date' }
+            ],
+            rows: patientData | getTableRows
+          }) }}
+
+          {{ pagination( '' | getPaginationLinks ) }}
+
+
+
+
+          <script>
+
+            const DataGenerator = (function(){
+
+              //
+              // NAMES
+              //
+              const names = [
+                { firstName: 'Olivia', lastName: 'Smith' },
+                { firstName: 'Amelia', lastName: 'Jones' },
+                { firstName: 'Isla', lastName: 'Taylor' },
+                { firstName: 'Ava', lastName: 'Brown' },
+                { firstName: 'Emily', lastName: 'Williams' },
+                { firstName: 'Sophia', lastName: 'Wilson' },
+                { firstName: 'Mia', lastName: 'Davies' },
+                { firstName: 'Ella', lastName: 'Evans' },
+                { firstName: 'Grace', lastName: 'Thomas' },
+                { firstName: 'Lily', lastName: 'Roberts' },
+                { firstName: 'Freya', lastName: 'Johnson' },
+                { firstName: 'Charlotte', lastName: 'Lewis' },
+                { firstName: 'Isabella', lastName: 'Walker' },
+                { firstName: 'Daisy', lastName: 'Hall' },
+                { firstName: 'Evie', lastName: 'Clarke' },
+                { firstName: 'Phoebe', lastName: 'Allen' },
+                { firstName: 'Sophie', lastName: 'Young' },
+                { firstName: 'Harper', lastName: 'King' },
+                { firstName: 'Millie', lastName: 'Wright' },
+                { firstName: 'Ella-Rose', lastName: 'Green' },
+                { firstName: 'Poppy', lastName: 'Baker' },
+                { firstName: 'Ruby', lastName: 'Adams' },
+                { firstName: 'Chloe', lastName: 'Mitchell' },
+                { firstName: 'Sienna', lastName: 'Turner' },
+                { firstName: 'Willow', lastName: 'Carter' },
+                { firstName: 'Jessica', lastName: 'Morris' },
+                { firstName: 'Matilda', lastName: 'Hughes' },
+                { firstName: 'Elsie', lastName: 'Ward' },
+                { firstName: 'Rosie', lastName: 'Price' },
+                { firstName: 'Aria', lastName: 'Cooper' },
+                { firstName: 'Layla', lastName: 'Bailey' },
+                { firstName: 'Luna', lastName: 'Parker' },
+                { firstName: 'Hannah', lastName: 'Phillips' },
+                { firstName: 'Zara', lastName: 'Bennett' },
+                { firstName: 'Florence', lastName: 'Cox' },
+                { firstName: 'Maya', lastName: 'Richardson' },
+                { firstName: 'Esme', lastName: 'Gray' },
+                { firstName: 'Ivy', lastName: 'Ross' },
+                { firstName: 'Arabella', lastName: 'Bell' },
+                { firstName: 'Evelyn', lastName: 'Cook' },
+                { firstName: 'Thea', lastName: 'Watson' },
+                { firstName: 'Alice', lastName: 'Sanders' },
+                { firstName: 'Emma', lastName: 'Harrison' },
+                { firstName: 'Lottie', lastName: 'Coleman' },
+                { firstName: 'Amber', lastName: 'Murphy' },
+                { firstName: 'Scarlett', lastName: 'Graham' },
+                { firstName: 'Bonnie', lastName: 'Stevens' },
+                { firstName: 'Imogen', lastName: 'Simpson' },
+                { firstName: 'Harriet', lastName: 'Butler' },
+                { firstName: 'Eleanor', lastName: 'Chapman' },
+                { firstName: 'Aisha', lastName: 'Ali' },
+                { firstName: 'Sofia', lastName: 'Hussain' },
+                { firstName: 'Amira', lastName: 'Khan' },
+                { firstName: 'Leah', lastName: 'Begum' },
+                { firstName: 'Niamh', lastName: 'O’Connor' },
+                { firstName: 'Aoife', lastName: 'Kelly' },
+                { firstName: 'Erin', lastName: 'McCarthy' },
+                { firstName: 'Orla', lastName: 'Doyle' },
+                { firstName: 'Cerys', lastName: 'Griffiths' },
+                { firstName: 'Megan', lastName: 'Rees' },
+                { firstName: 'Ffion', lastName: 'Evans' },
+                { firstName: 'Eilidh', lastName: 'MacDonald' },
+                { firstName: 'Skye', lastName: 'Fraser' },
+                { firstName: 'Maisie', lastName: 'Armstrong' },
+                { firstName: 'Penelope', lastName: 'Hunter' },
+                { firstName: 'Clara', lastName: 'Lawrence' },
+                { firstName: 'Beatrice', lastName: 'Spencer' },
+                { firstName: 'Nancy', lastName: 'Rogers' },
+                { firstName: 'Annabelle', lastName: 'Watts' },
+                { firstName: 'Heidi', lastName: 'Henderson' },
+                { firstName: 'Rose', lastName: 'Palmer' },
+                { firstName: 'Lara', lastName: 'Nicholson' },
+                { firstName: 'Julia', lastName: 'Gardner' },
+                { firstName: 'Ada', lastName: 'Newton' },
+                { firstName: 'Summer', lastName: 'Reed' },
+                { firstName: 'Victoria', lastName: 'Harvey' },
+                { firstName: 'Maria', lastName: 'Fernandez' },
+                { firstName: 'Elena', lastName: 'Silva' },
+                { firstName: 'Leila', lastName: 'Patel' },
+                { firstName: 'Fatima', lastName: 'Iqbal' },
+                { firstName: 'Jasmine', lastName: 'Ahmed' },
+                { firstName: 'Nadia', lastName: 'Rashid' },
+                { firstName: 'Tara', lastName: 'Paterson' },
+                { firstName: 'Bethany', lastName: 'Foster' },
+                { firstName: 'Lauren', lastName: 'Fox' },
+                { firstName: 'Georgia', lastName: 'Grant' },
+                { firstName: 'Abigail', lastName: 'Murray' },
+                { firstName: 'Ella-May', lastName: 'West' },
+                { firstName: 'Robyn', lastName: 'Matthews' },
+                { firstName: 'Kayla', lastName: 'Holmes' },
+                { firstName: 'Lydia', lastName: 'Walsh' },
+                { firstName: 'Alexandra', lastName: 'Page' },
+                { firstName: 'Natalie', lastName: 'Jordan' },
+                { firstName: 'Beth', lastName: 'Barrett' },
+                { firstName: 'Mollie', lastName: 'Hayes' },
+                { firstName: 'Francesca', lastName: 'Cunningham' },
+                { firstName: 'Amelie', lastName: 'Barber' },
+                { firstName: 'Lucia', lastName: 'Knight' },
+                { firstName: 'Eden', lastName: 'Parsons' },
+                { firstName: 'Tilly', lastName: 'Bates' },
+                { firstName: 'Holly', lastName: 'Day' },
+                { firstName: 'Indie', lastName: 'Francis' },
+                { firstName: 'Hope', lastName: 'Burton' }
+              ];
+
+              //
+              // INIT FUNCTION
+              //
+              function _init(){
+
+                const patientsButton = document.querySelector('#patientsButton');
+                const patientsTextarea = document.querySelector('#patientsTextarea');
+
+                patientsButton.addEventListener('click',function( e ){
+                  
+                  console.log('Button clicked');
+
+                  patientsTextarea.value = _generatePatientData();
+
+                  e.preventDefault();
+                  e.stopPropagation();
+
+                });
+
+              };
+
+              //
+              // GENERATE PATIENT DATA FUNCTION
+              //
+              function _generatePatientData(){
+
+                const patients = [];
+
+                names.forEach( function( name ){
+
+                    const obj = name;
+                    obj.nhsNumber = _generateNHSNumber();
+
+                    obj.certificateType = 'MATEX';
+                    obj.certificateReference = _generateCertificateReference();
+                    obj.startDate = _generateStartDate();
+                    obj.endDate = _generateEndDate( obj.startDate );
+
+                    const statuses = ['pending','live'];
+                    obj.status = statuses[Math.round(Math.random()*(statuses.length-1))];
+
+                    patients.push(obj);
+
+                });
+
+                return JSON.stringify( patients );
+
+              };
+
+              //
+              // GENERATE CERTIFICATE REFERENCE FUNCTION
+              //
+              function _generateCertificateReference(){
+
+                // Format 00 000 000 000
+                const randomNumber = Math.floor(Math.random() * 100000000000);
+                let numberString = randomNumber.toString();
+                numberString = numberString.slice(0, 2) + ' ' + numberString.slice(2, 5) + ' ' + numberString.slice(5,8) + ' ' + numberString.slice(8);
+                
+                return numberString;
+
+              };
+
+              //
+              // GENERATE NHS NUMBER FUNCTION
+              //
+              function _generateNHSNumber() {
+
+                // Format 000 000 0000
+                const randomNumber = Math.floor(Math.random() * 10000000000);
+                let numberString = randomNumber.toString();
+                numberString = numberString.slice(0, 3) + ' ' + numberString.slice(3, 6) + ' ' + numberString.slice(6);
+
+                return numberString;
+              };
+
+              //
+              // GENERATE START DATE
+              //
+              function _generateStartDate(){
+
+                const today = new Date();
+                
+                const minMonths = -6;
+                const maxMonths = -12;
+
+                // Create date bounds
+                const minDate = new Date();
+                minDate.setMonth(minDate.getMonth() + minMonths);
+                minDate.setHours(0, 0, 0, 0);
+
+                const maxDate = new Date();
+                maxDate.setMonth(maxDate.getMonth() + maxMonths);
+                maxDate.setHours(0, 0, 0, 0);
+
+                // Pick a random date between them
+                const randomTime = minDate.getTime() + Math.random() * (maxDate.getTime() - minDate.getTime());
+                const randomDate = new Date(randomTime);
+
+                // Format: "1 November 2023"
+                const day = randomDate.getDate();
+                const month = randomDate.toLocaleString('en-GB', { month: 'long' });
+                const year = randomDate.getFullYear();
+
+                return day + ' ' + month + ' ' + year;
+
+              };
+
+              //
+              // GENERATE END DATE FUNCTION
+              //
+              function _generateEndDate( startDateString ){
+
+                const startDate = new Date( startDateString );
+                startDate.setMonth( startDate.getMonth() + 21 );
+                startDate.setHours(0, 0, 0, 0);
+
+                const day = startDate.getDate();
+                const month = startDate.toLocaleString('en-GB', { month: 'long' });
+                const year = startDate.getFullYear();
+
+                return day + ' ' + month + ' ' + year;
+
+              };
+
+
+              
+
+              return {
+                init: _init
+              }
+
+            })();
+
+            document.addEventListener('DOMContentLoaded',function(){
+              DataGenerator.init();
+            });
+
+          </script>
+
+</div>
+</div>
+
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+
+
+          {{ textarea({
+            id: 'patientsTextarea',
+            label: {
+              text: 'Patient data',
+              classes: 'nhsuk-label--m'
+            },
+            hint: {
+              html: '
+                <p>Press the button below to generate a fresh set of patient data with JS, that can be copy/pasted and added into the static patientData variable held in the nunjucks on this page.</p>
+                <p>This is then used to populate the dynamic results table above, and imported into other prototype pages.</p>'
+            }
+          }) }}
+
+          {{ button({
+            id: 'patientsButton',
+            text: 'Generate new data'
+          }) }}
+
+      </div>
+  </div>
+
+{% endblock %}

@@ -82,6 +82,8 @@ nunjucksConfig.express = app
 let nunjucksAppEnv = nunjucks.configure(appViews, nunjucksConfig)
 nunjucksAppEnv.addGlobal('version', packageInfo.version)
 
+app.locals.env = nunjucksAppEnv;
+
 // Add Nunjucks filters
 utils.addNunjucksFilters(nunjucksAppEnv)
 
