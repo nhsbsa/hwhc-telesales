@@ -4,6 +4,30 @@
 module.exports = function (env) {
 
   //
+  // GET CERTIFICATE TYPE TAG FUNCTION
+  //
+  function _getCertificateTypeTag( service ){
+
+    let tag = '';
+
+    switch( service ){
+
+      case 'hrtppc':
+        tag = '<strong class="nhsuk-tag nhsuk-tag--blue">HRT PPC</strong>';
+        break;
+
+      case 'matex':
+        tag = '<strong class="nhsuk-tag nhsuk-tag--green">MATEX</strong>';
+        break;
+
+    }
+
+    return tag;
+
+  }
+
+
+  //
   // GET PAGINATED RESULTS FUNCTION
   //
   function _getPaginatedResults( rows, rowsPerPage, currentPage) {
@@ -120,7 +144,7 @@ module.exports = function (env) {
 
       const obj = [
         { text: patient.lastName + ', ' + patient.firstName },
-        { html: '<strong class="nhsuk-tag nhsuk-tag--blue">' + patient.certificateType + '</strong>' },
+        { html: _getCertificateTypeTag( patient.certificateType )},
         { html: statusTag },
         { text: patient.certificateReference },
         { text: patient.endDate }

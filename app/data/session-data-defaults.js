@@ -6,8 +6,9 @@ module.exports = {
     accessKeys: 'on',
 
     v1: {
-        rowsPerPage: 5,
-        currentPage: 0
+        rowsPerPage: 10,
+        currentPage: 0,
+        certificateTypes: ['matex','hrtppc']
     }
 
 }
