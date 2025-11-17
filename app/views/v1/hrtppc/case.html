@@ -1,0 +1,45 @@
+{% extends 'layout-fullscreen.html' %}
+
+{% set pageName = 'HRT PPC Case' %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h1 class="nhsuk-heading-l">{{ pageName }}</h1>
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-one-third">
+      <p>Column 01</p>
+    </div>
+
+    <div class="nhsuk-grid-column-one-third">
+      <p>Column 02</p>
+    </div>
+
+    <div class="nhsuk-grid-column-one-third">
+
+        <!-- Import from NHS App frontend -->
+        {% from 'nhsapp/components/timeline/macro.njk' import nhsappTimeline %}
+
+        {{ nhsappTimeline({
+          items: [
+            {
+              headingText: 'Await approval',
+              text: 'The request will either be approved or rejected. If rejected please contact your Healthcare Professional.',
+              active: true
+            },
+            {
+              headingText: 'GP Approval Process',
+              text: 'Once approved, it can take 3 to 5 working days for a nominated pharmacy to prepare your prescription.'
+            }
+          ]
+        }) }}
+
+    </div>
+</div>
+
+{% endblock %}

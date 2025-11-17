@@ -1,6 +1,6 @@
-{% extends 'layout-fullscreen.html' %}
+{% extends 'layout-fullscreen-normal-content.html' %}
 
-{% set pageName = 'Search' %}
+{% set pageName = 'Search for a certificate' %}
 
 {% block content %}
 
@@ -8,6 +8,115 @@
     <div class="nhsuk-grid-column-full">
 
           <h1 class="nhsuk-heading-l">{{ pageName }}</h1>
+
+          <style>
+            .grey-panel {
+              background-color: #d8dde0;
+              padding: 1.25rem;
+              border-radius: 4px;
+            }
+          </style>
+
+          <div class="grey-panel">
+
+            <form action="search" method="post" novalidate>
+
+
+              <div class="nhsuk-grid-row">
+
+                <div class="nhsuk-grid-column-one-third">
+                  {{ input({
+                    label: {
+                      text: 'Certificate reference'
+                    },
+                    id: 'searchCertificateReference',
+                    name: 'searchCertificateReference'
+                  }) }}
+                </div>
+
+                <div class="nhsuk-grid-column-one-third">
+                  {{ input({
+                    label: {
+                      text: 'First name'
+                    },
+                    id: 'searchFirstName',
+                    name: 'searchFirstName'
+                  }) }}
+                </div>
+
+                <div class="nhsuk-grid-column-one-third">
+                  {{ input({
+                    label: {
+                      text: 'Last name'
+                    },
+                    id: 'searchLastName',
+                    name: 'searchLastName'
+                  }) }}
+                </div>
+
+              </div>
+
+
+
+
+              <div class="nhsuk-grid-row">
+
+                <div class="nhsuk-grid-column-one-third">
+                  {{ input({
+                    label: {
+                      text: 'Date of birth'
+                    },
+                    id: 'searchDateOfBirth',
+                    name: 'searchDateOfBirth'
+                  }) }}
+                </div>
+
+                <div class="nhsuk-grid-column-one-third">
+                  {{ input({
+                    label: {
+                      text: 'Postcode'
+                    },
+                    id: 'searchPostcode',
+                    name: 'searchPostcode'
+                  }) }}
+                </div>
+
+                <div class="nhsuk-grid-column-one-third">
+                  {{ input({
+                    label: {
+                      text: 'Last name'
+                    },
+                    id: 'searchLastName',
+                    name: 'searchLastName'
+                  }) }}
+                </div>
+
+              </div>
+
+
+              <div class="nhsuk-grid-row">
+                <div class="nhsuk-grid-column-full">
+                  
+                  {{ button({
+                    text: 'Search',
+                    href: 'search-results',
+                    classes: 'nhsuk-u-margin-bottom-0'
+                  }) }}
+
+
+                  {{ button({
+                    text: 'Reset',
+                    classes: 'nhsuk-button--secondary nhsuk-u-float-right nhsuk-u-margin-bottom-0'
+                  }) }}
+
+                </div>
+              </div>
+
+
+
+            </form>
+
+          </div>
 
       </div>
   </div>
