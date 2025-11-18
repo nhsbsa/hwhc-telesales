@@ -46,11 +46,24 @@ module.exports = function (env) {
   // GET SORTED RESULTS FUNCTION
   // Applies table sorting to the results
   //
-  function _getSortedResults( rows ) {
+  function _getSortedResults( rows, sortBy, sortDirection ) {
 
-    console.log( '_getSortedResults()' );
+    console.log( '_getSortedResults( rows, ' + sortBy + ', ' + sortDirection + ')' );
 
-    const sortedRows = rows;
+    let sortedRows = Array.from(rows); // Should already be a row, really...
+    sortedRows.sort(function( a, b ){
+
+        // Text check
+        let comparisonA = a[sortBy];
+        let comparisonB = b[sortBy];
+
+        return comparisonA.localeCompare( comparisonB );
+
+    });
+
+    if( sortDirection === 'ascending' ){
+        sortedRows = sortedRows.reverse();
+    }
 
     return sortedRows;
 
@@ -156,31 +169,72 @@ module.exports = function (env) {
   }
 
   //
+  // GET TABLE HEAD ROWS FILTER
+  //
+  env.addFilter('getTableHeadRows', function ( content ) {
+
+    const version = this.ctx.version;
+
+    const sortBy = ( this.ctx.data[version].sortBy ) ? this.ctx.data[version].sortBy : 'lastName'; 
+    const sortDirection = ( ['ascending','descending'].indexOf( this.ctx.data[version].sortDirection ) > -1 ) ? this.ctx.data[version].sortDirection : 'descending';
+
+    const baseLink = '?' + version + '[currentPage]=0';
+    const opposite = ( sortDirection === 'descending' ) ? 'ascending' : 'descending'; 
+
+    // lastName
+    let lastNameLink = ( sortBy === 'lastName' ) ? baseLink + '&' + version + '[sortBy]=lastName&' + version + '[sortDirection]=' + opposite : baseLink + '&sortBy=name&sortDirection=ascending';
+    let lastNameObj = {
+        html: '<a href="'+lastNameLink+'">Name</a><span class="nhsuk-body-s">NHS number</span>',
+        attributes: {
+            'aria-sort': ( sortBy === 'lastName' ) ? sortDirection : 'none'
+        } 
+    };
+
+    const rows = [
+              lastNameObj,
+              { text: 'Postcode' },
+              { text: 'Exemption' },
+              { text: 'Status' },
+              { text: 'Reference' },
+              { text: 'End date' },
+              { text: 'Action' }
+            ];
+
+    return rows;
+
+  });
+
+  //
   // GET TABLE ROWS FILTER
   //
   env.addFilter('getTableRows', function ( patientData ) {
-
-    console.log( this.ctx.data[this.ctx.version].rowsPerPage );
 
     if( typeof patientData === 'string' ){
       patientData = JSON.parse( patientData );
     }
 
+    // Sorting variables
+    const sortBy = ( this.ctx.data[this.ctx.version].sortBy ) ? this.ctx.data[this.ctx.version].sortBy : 'lastName'; 
+    const sortDirection = ( ['ascending','descending'].indexOf( this.ctx.data[this.ctx.version].sortDirection ) > -1 ) ? this.ctx.data[this.ctx.version].sortDirection : 'descending';
+
+    // Pagination variables
     const rowsPerPage = (Number.isInteger(parseInt(this.ctx.data[this.ctx.version].rowsPerPage))) ? parseInt(this.ctx.data[this.ctx.version].rowsPerPage) : 5;
     const currentPage = (Number.isInteger(parseInt(this.ctx.data[this.ctx.version].currentPage))) ? parseInt(this.ctx.data[this.ctx.version].currentPage) : 0;
 
-    const rows = [];
+    // Process the patients
+    const filteredPatientData = _getFilteredResults( patientData );
+    const sortedPatientData = _getSortedResults( filteredPatientData, sortBy, sortDirection );
+    const paginatedPatientData = _getPaginatedResults( sortedPatientData, rowsPerPage, currentPage);
 
-    this.ctx.data[this.ctx.version].noOfFilteredRows = patientData.length;
-
-    const paginatedPatientData = _getPaginatedResults( _getSortedResults( _getFilteredResults( patientData ) ), rowsPerPage, currentPage);
+    this.ctx.data[this.ctx.version].noOfFilteredRows = filteredPatientData.length;
 
     // Convert into component rows
+    const rows = [];
+
     paginatedPatientData.forEach(function (patient) {
 
-      const statusTag = (patient.status === 'active') ? '<strong class="nhsuk-tag nhsuk-tag--green">Active</strong>' : '<strong class="nhsuk-tag nhsuk-tag--white">Pending</strong>';
+      const statusTag = (patient.status === 'active') ? '<strong class="nhsuk-tag nhsuk-tag--white">Active</strong>' : '<strong class="nhsuk-tag nhsuk-tag--grey">Pending</strong>';
       
-
       const obj = [
         { html: '<strong>' + patient.lastName + ', ' + patient.firstName + '</strong><br /><span class="nhsuk-body-s">' + patient.nhsNumber + '</span>' },
         { html: patient.address.postcode },

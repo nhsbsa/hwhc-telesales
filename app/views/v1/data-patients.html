@@ -14,13 +14,8 @@
             caption: 'Exemptions',
             firstCellIsHeader: false,
             responsive: true,
-            head: [
-              { text: 'Name' },
-              { text: 'Exemption' },
-              { text: 'Status' },
-              { text: 'Reference' },
-              { text: 'End date' }
-            ],
+            tableClasses: 'patient-table',
+            head: '' | getTableHeadRows,
             rows: '' | getPatientData | getTableRows
           }) }}
 

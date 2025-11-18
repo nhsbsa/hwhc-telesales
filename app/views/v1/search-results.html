@@ -22,15 +22,7 @@
             tableClasses: 'patient-table',
             firstCellIsHeader: false,
             responsive: true,
-            head: [
-              { html: 'Name<br /><span class="nhsuk-body-s">NHS number</span>' },
-              { text: 'Postcode' },
-              { text: 'Exemption' },
-              { text: 'Status' },
-              { text: 'Reference' },
-              { text: 'End date' },
-              { text: 'Action' }
-            ],
+            head: '' | getTableHeadRows,
             rows: '' | getPatientData | getTableRows
           }) }}
 

@@ -8,7 +8,9 @@ module.exports = {
     v1: {
         rowsPerPage: 10,
         currentPage: 0,
-        certificateTypes: ['matex','hrtppc']
+        certificateTypes: ['matex','hrtppc'],
+        sortBy: 'lastName',
+        sortDirection: 'descending'
     }
 
 }
