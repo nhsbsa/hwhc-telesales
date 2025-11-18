@@ -13,12 +13,204 @@
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-one-third">
-      <p>Column 01</p>
+
+      {{ card({
+        heading: "Certificate details",
+        headingLevel: "2",
+        headingClasses: "nhsuk-heading-s",
+        description: summaryList({
+          classes: "summary-list--single-line",
+          rows: [
+            {
+              key: {
+                text: "Certificate reference"
+              },
+              value: {
+                text: "HRT AF4A 488E"
+              }
+            },
+            {
+              key: {
+                text: "Certificate type"
+              },
+              value: {
+                html: tag({
+                  text: "HRT PPC",
+                  classes: "nhsuk-tag--blue"
+                })
+              }
+            },
+            {
+              key: {
+                text: "Certificate status"
+              },
+              value: {
+                html: "ACTIVE"
+              }
+            },
+            {
+              key: {
+                text: "Certificate channel"
+              },
+              value: {
+                html: "Online"
+              }
+            },
+            {
+              key: {
+                text: "Certificate fulfilment"
+              },
+              value: {
+                html: "Email"
+              }
+            },
+            {
+              key: {
+                text: "Certificate start"
+              },
+              value: {
+                html: "25 November 2025"
+              }
+            },
+            {
+              key: {
+                text: "Certificate expiry"
+              },
+              value: {
+                html: "24 November 2026"
+              }
+            },
+            {
+              key: {
+                text: "Application date"
+              },
+              value: {
+                html: "25 November 2025"
+              }
+            },
+            {
+              classes: "nhsuk-summary-list__row--no-border",
+              value: {
+                html: button({
+                text: "Edit certificate details",
+                classes: "nhsuk-button--secondary"
+              })
+            }
+          }
+          ]
+        })
+      }) }}
+    
     </div>
 
+    
+
+
     <div class="nhsuk-grid-column-one-third">
-      <p>Column 02</p>
+      {{ card({
+        heading: "Personal details",
+        headingLevel: "2",
+        headingClasses: "nhsuk-heading-s",
+        description: summaryList({
+          classes: "summary-list--single-line",
+          rows: [
+            {
+              key: {
+                text: "Name"
+              },
+              value: {
+                text: "Jane Smith"
+              }
+            },
+            {
+              key: {
+                text: "Address"
+              },
+              value: {
+                html: "101 Test Lane<br>Stella<br>Goldcrest<br>TR110TS"
+              }
+            },
+            {
+              key: {
+                text: "Date of birth"
+              },
+              value: {
+                html: "28 November 1970"
+              }
+            },
+            {
+              key: {
+                text: "Email address"
+              },
+              value: {
+                html: "jane.smith@mail.com"
+              }
+            },
+            {
+              key: {
+                text: "NHS number"
+              },
+              value: {
+                html: "1234567890"
+              }
+            },
+            {
+              classes: "nhsuk-summary-list__row--no-border",
+              value: {
+                html: button({
+                text: "Edit personal details",
+                classes: "nhsuk-button--secondary"
+                })
+              }
+            }
+          ]
+        })
+      }) }}
     </div>
+
+    <!-- Summary list card styling -->
+    <style>
+      .summary-list--single-line .nhsuk-summary-list__row {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: top;
+        margin-top: 10px;
+        margin-bottom: 0;
+      }
+
+      .summary-list--single-line .nhsuk-summary-list__key,
+      .summary-list--single-line .nhsuk-summary-list__value,
+      .summary-list--single-line .nhsuk-summary-list__actions {
+        white-space: nowrap;
+      }
+
+      .summary-list--single-line .nhsuk-summary-list__key {
+        margin-right: 3rem; /* adjust as needed */
+      }
+
+      .summary-list--single-line .nhsuk-summary-list__value {
+        margin-left: 3rem;
+      }
+
+      /* Prevent long content from collapsing layout */
+      .summary-list--single-line .nhsuk-summary-list__value,
+      .summary-list--single-line .nhsuk-summary-list__actions {
+        flex-shrink: 0;
+      }
+
+      .nhsuk-grid-row {
+        display: flex; /* Enable flexbox */
+      }
+
+      .nhsuk-grid-column-one-third {
+        display: flex; /* Ensure child stretches */
+      }
+      
+      .nhsuk-summary-list__row--no-border .nhsuk-button--secondary {
+        margin-bottom: -3rem;
+      }
+
+    </style>
 
     <div class="nhsuk-grid-column-one-third">
 
