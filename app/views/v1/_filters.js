@@ -41,16 +41,21 @@ module.exports = function (env) {
       rows.forEach( function( row ){
 
         const needle = searchTerms[key].trim().toLowerCase();
-        let haystack = row[key].toLowerCase();
+        let haystack;
 
         switch( key ){
 
           case 'postcode':
+            console.log( row );
             haystack = row.address[key].toLowerCase();
             break;
 
           case 'certificateReference':
             haystack = row[key].toLowerCase().split(' ').join('');
+            break;
+
+          default: 
+            haystack = row[key].toLowerCase();
             break;
 
         }
@@ -277,12 +282,21 @@ module.exports = function (env) {
     }
     if( this.ctx.data.searchFirstName ){
       searchTerms.firstName = this.ctx.data.searchFirstName;
-      summary.push( '"'+searchTerms.firstName+'" in last name' );
+      summary.push( '"'+searchTerms.firstName+'" in first name' );
     }
     if( this.ctx.data.searchPostcode ){
       searchTerms.postcode = this.ctx.data.searchPostcode;
       summary.push( '"'+searchTerms.postcode+'" in postcode' );
     }
+
+    if( summary.length === 1 ){
+      this.ctx.data.summaryText = 'All exemptions with ' + summary[0];
+    } else {
+      let last = summary.pop();
+      this.ctx.data.summaryText = 'All exemptions with ' + summary.join(', ') + ' and ' + last;
+    }
+
+    
 
     // Sorting variables
     const sortBy = ( this.ctx.data[this.ctx.version].sortBy ) ? this.ctx.data[this.ctx.version].sortBy : 'lastName'; 

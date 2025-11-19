@@ -20959,6 +20959,12 @@ b {
   background-color: #f0f4f5;
 }
 
+.nhsuk-inset-text--summary {
+  margin-top: 0;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
 /* TABLE SORTER STYLES */
 [aria-sort] a,
 [aria-sort] a:hover {

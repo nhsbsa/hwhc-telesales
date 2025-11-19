@@ -20,9 +20,12 @@
 
         <h1 class="nhsuk-heading-m">{{ pageName }}</h1>
 
-          {% if ( filteredRows.length > 0 ) %}
+        {{ insetText({
+          classes: 'nhsuk-inset-text--summary',
+          html: '<p class="nhsuk-body-s">'+data.summaryText+'&nbsp;&nbsp;<a class="nhsuk-link" href="search">Change search</a></p>'
+        }) }}
 
-          
+          {% if ( filteredRows.length > 0 ) %}
 
               {{ table({
                 panel: false,
