@@ -97,13 +97,19 @@
             },
             {
               classes: "nhsuk-summary-list__row--no-border",
+              key: {
+                html: button({
+                text: "Reissue certificate (K)",
+                classes: "nhsuk-button"
+              })
+              },
               value: {
                 html: button({
-                text: "Edit certificate details",
-                classes: "nhsuk-button--secondary"
+                classes: "nhsuk-button--secondary",
+                html: 'Edit <span class="nhsuk-u-visually-hidden">certificate details </span>(E)'
               })
+              }
             }
-          }
           ]
         })
       }) }}
@@ -122,6 +128,7 @@
           classes: "summary-list--single-line",
           rows: [
             {
+              classes: "nhsuk-summary-list__row--wrap",
               key: {
                 text: "Name"
               },
@@ -130,6 +137,7 @@
               }
             },
             {
+              classes: "nhsuk-summary-list__row--wrap",
               key: {
                 text: "Address"
               },
@@ -146,11 +154,12 @@
               }
             },
             {
+              classes: "nhsuk-summary-list__row--wrap",
               key: {
                 text: "Email address"
               },
               value: {
-                html: "jane.smith@mail.com"
+                html: "jane.smith@example.com"
               }
             },
             {
@@ -165,8 +174,8 @@
               classes: "nhsuk-summary-list__row--no-border",
               value: {
                 html: button({
-                text: "Edit personal details",
-                classes: "nhsuk-button--secondary"
+                classes: "nhsuk-button--secondary",
+                html: 'Edit <span class="nhsuk-u-visually-hidden">personal details </span>(E)'
                 })
               }
             }
@@ -175,49 +184,6 @@
       }) }}
     </div>
 
-    <!-- Summary list card styling -->
-    <style>
-      .summary-list--single-line .nhsuk-summary-list__row {
-        display: flex;
-        flex-wrap: nowrap;
-        align-items: top;
-        margin-top: 10px;
-        margin-bottom: 0;
-      }
-
-      .summary-list--single-line .nhsuk-summary-list__key,
-      .summary-list--single-line .nhsuk-summary-list__value,
-      .summary-list--single-line .nhsuk-summary-list__actions {
-        white-space: nowrap;
-      }
-
-      .summary-list--single-line .nhsuk-summary-list__key {
-        margin-right: 3rem; /* adjust as needed */
-      }
-
-      .summary-list--single-line .nhsuk-summary-list__value {
-        margin-left: 3rem;
-      }
-
-      /* Prevent long content from collapsing layout */
-      .summary-list--single-line .nhsuk-summary-list__value,
-      .summary-list--single-line .nhsuk-summary-list__actions {
-        flex-shrink: 0;
-      }
-
-      .nhsuk-grid-row {
-        display: flex; /* Enable flexbox */
-      }
-
-      .nhsuk-grid-column-one-third {
-        display: flex; /* Ensure child stretches */
-      }
-      
-      .nhsuk-summary-list__row--no-border .nhsuk-button--secondary {
-        margin-bottom: -3rem;
-      }
-
-    </style>
 
     <div class="nhsuk-grid-column-one-third">
 
@@ -242,9 +208,129 @@
         }) }}
 
         </div>
-        </div>
+      </div>
 
     </div>
+
+    <!-- Summary list card styling -->
+    <style>
+      /* --------------------------------------------------- */
+      /* Base (default) layout: applies to 426px–1023px & >1024px */
+      /* --------------------------------------------------- */
+
+      .summary-list--single-line .nhsuk-summary-list__row {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+      }
+
+      .summary-list--single-line .nhsuk-summary-list__key {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        margin-right: 5rem;
+      }
+
+      .summary-list--single-line .nhsuk-summary-list__value {
+        flex: 1 1 auto;
+        min-width: 0;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      /* Buttons row (default: left & right inline) */
+      .summary-list--single-line .nhsuk-summary-list__row--no-border {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        margin-top: 1rem;
+      }
+
+      .summary-list--single-line .nhsuk-summary-list__row--no-border 
+        .nhsuk-summary-list__key,
+      .summary-list--single-line .nhsuk-summary-list__row--no-border 
+        .nhsuk-summary-list__value {
+        flex: 0 0 auto;
+        margin: 0;
+      }
+
+
+      /* --------------------------------------------------- */
+      /* STACKING BREAKPOINT 1 — small screens (≤425px)      */
+      /* --------------------------------------------------- */
+      @media (max-width: 425px) {
+
+        .summary-list--single-line .nhsuk-summary-list__row {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.25rem;
+          padding-bottom: 0.5rem;
+        }
+
+        .summary-list--single-line .nhsuk-summary-list__key {
+          margin: 0;
+        }
+
+        .summary-list--single-line .nhsuk-summary-list__row--no-border {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 0.5rem;
+        }
+      }
+
+
+      /* --------------------------------------------------- */
+      /* STACKING BREAKPOINT 2 — special case: 1024px only   */
+      /* --------------------------------------------------- */
+      @media (min-width: 1024px) and (max-width: 1024px) {
+
+        .summary-list--single-line .nhsuk-summary-list__row {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.25rem;
+          padding-bottom: 0.5rem;
+        }
+
+        .summary-list--single-line .nhsuk-summary-list__key {
+          margin: 0;
+        }
+
+        .summary-list--single-line .nhsuk-summary-list__row--no-border {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 0.5rem;
+        }
+      }
+      
+      /* --------------------------------------------------- */
+      /* Same height columns — Desktop only */
+      /* --------------------------------------------------- */
+      @media (min-width: 1024px) {
+
+        .nhsuk-grid-row {
+          display: flex !important;
+          align-items: stretch;
+        }
+
+        .nhsuk-grid-row > .nhsuk-grid-column-one-third {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .nhsuk-grid-row .nhsuk-card {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+        }
+
+        .nhsuk-grid-row .nhsuk-card__content {
+          flex: 1 1 auto;
+        }
+      }
+
+
+    </style>
+
 </div>
 
 {% endblock %}
