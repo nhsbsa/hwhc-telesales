@@ -47,4 +47,37 @@ router.use((req, res, next) => {
 });
 
 
+//Certificate start date in edit certificate
+router.get('/v1/hrtppc/edit-certificate', function (req, res) {
+
+  const applicationDate = new Date('2025-11-25');
+
+  const formattedApplicationDate = applicationDate.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric"
+  });
+
+  const editableUntil = new Date(applicationDate);
+  editableUntil.setDate(editableUntil.getDate() + 30);
+
+  const today = req.query.today
+  ? (() => {
+      const parts = req.query.today.split('/');
+      // parts[0] = day, parts[1] = month, parts[2] = year
+      return new Date(parts[2], parts[1] - 1, parts[0]);
+    })()
+  : new Date();
+
+  const canEditCertificateStart = today <= editableUntil;
+
+
+  res.render('v1/hrtppc/edit-certificate', {
+    canEditCertificateStart,
+    today,
+    formattedApplicationDate
+  });
+});
+
+
 module.exports = router;
