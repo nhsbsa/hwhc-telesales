@@ -17,155 +17,155 @@
   </div>
 </div>
 
-
 <div class="nhsuk-grid-row">
-  <div class="nhsuk-grid-column-full">
+  <div class="nhsuk-grid-column-one-half">
+    <div class="nhsuk-card nhsuk-card--grey">
+      <div class="nhsuk-card__content">
 
-    {% if canEditCertificateStart %}
-    {% set certificateStart %}
-      {{ dateInput({
-        id: "certificate-start",
-        hint: {
-          text: "Start date can only be changed up to 30 days after application date."
-        },
-        items: [
-          { 
-            name: "day", 
-            classes: "nhsuk-input--width-2", 
-            value: "25" 
+      {% if canEditCertificateStart %}
+      {% set certificateStart %}
+        {{ dateInput({
+          id: "certificate-start",
+          hint: {
+            text: "Start date can only be changed up to 30 days after application date."
           },
-          { 
-            name: "month", 
-            classes: "nhsuk-input--width-2", 
-            value: "11" 
-          },
-          { 
-            name: "year", 
-            classes: "nhsuk-input--width-4", 
-            value: "2025" 
-          }
-        ]
-      }) }}
-      {% endset %}
-      {% else %}
-        {% set certificateStart %}
-        <p class="nhsuk-hint">
-          Start date can only be changed up to 30 days after application date.
-        </p>
-            {{ formattedApplicationDate }}
-        {% endset %}
-      {% endif %}
-
-
-
-    {{ summaryList({
-      heading: "Certificate details",
-      headingLevel: "2",
-      headingClasses: "nhsuk-heading-s",
-        classes: "summary-list--single-line",
-        rows: [
-          {
-            key: { 
-              text: "Certificate reference" 
-            },
-            value: 
+          items: [
             { 
-              text: "HRT AF4A 488E" 
-            }
-          },
-          {
-            key: { 
-              text: "Certificate type" 
+              name: "day", 
+              classes: "nhsuk-input--width-2", 
+              value: "25" 
             },
-            value: {
-              html: tag({ 
-                text: "HRT PPC", 
-                classes: "nhsuk-tag--blue" 
-              })
-            }
-          },
-          {
-            key: { 
-              text: "Certificate status" 
+            { 
+              name: "month", 
+              classes: "nhsuk-input--width-2", 
+              value: "11" 
             },
-            value: {
-               html: "ACTIVE" 
+            { 
+              name: "year", 
+              classes: "nhsuk-input--width-4", 
+              value: "2025" 
+            }
+          ]
+        }) }}
+        {% endset %}
+        {% else %}
+          {% set certificateStart %}
+              {{ formattedApplicationDate }}
+          {% endset %}
+        {% endif %}
+
+
+
+      {{ summaryList({
+        heading: "Certificate details",
+        headingLevel: "2",
+        headingClasses: "nhsuk-heading-s",
+          classes: "summary-list--single-line",
+          rows: [
+            {
+              key: { 
+                text: "Reference" 
+              },
+              value: 
+              { 
+                text: "HRT AF4A 488E" 
               }
-          },
-          {
-            key: { 
-              text: "Certificate channel" 
             },
-            value: {
-              html: "Online" 
-            }
-          },
-          {
-            key: { 
-              text: "Certificate fulfilment" 
+            {
+              key: { 
+                text: "Type" 
+              },
+              value: {
+                html: tag({ 
+                  text: "HRT PPC", 
+                  classes: "nhsuk-tag--blue" 
+                })
+              }
             },
-            value: {
-              classes: "fulfilment-value",
-              html: radios({
-                idPrefix: "example-inline",
-                name: "exampleInline",
-                classes: "nhsuk-radios--inline summary-list-radios",
-                items: [
-                  { 
-                    value: "email", 
-                    text: "Email (L)",
-                    checked: true
-                  },
-                  { 
-                    value: "post", 
-                    text: "Post (N)" 
-                  }
-                ]
-              })
-            }
-          },
-          {
-            key: { 
-              text: "Certificate start" 
+            {
+              key: { 
+                text: "Status" 
+              },
+              value: {
+                html: "ACTIVE" 
+                }
             },
-            value: { 
-              html: certificateStart
-            }
-          },
-          {
-            key: { 
-              text: "Certificate expiry" 
+            {
+              key: { 
+                text: "Certificate channel" 
+              },
+              value: {
+                html: "Online" 
+              }
             },
-            value: { 
-              html: "24 November 2026" 
-            }
-          },
-          {
-            key: { 
-              text: "Application date" 
+            {
+              key: { 
+                text: "Fulfilment method (F)" 
+              },
+              value: {
+                classes: "fulfilment-value",
+                html: radios({
+                  idPrefix: "example-inline",
+                  name: "exampleInline",
+                  classes: "nhsuk-radios--inline summary-list-radios",
+                  items: [
+                    { 
+                      value: "email", 
+                      text: "Email (L)",
+                      checked: true
+                    },
+                    { 
+                      value: "post", 
+                      text: "Post (N)" 
+                    }
+                  ]
+                })
+              }
             },
-            value: { 
-              html: "25 November 2025" 
+            {
+              key: { 
+                text: "Start date (D)" 
+              },
+              value: { 
+                html: certificateStart
+              }
+            },
+            {
+              key: { 
+                text: "Expiry date" 
+              },
+              value: { 
+                html: "24 November 2026" 
+              }
+            },
+            {
+              key: { 
+                text: "Application date" 
+              },
+              value: { 
+                html: "25 November 2025" 
+              }
             }
-          }
-        ]
-    }) }}
+          ]
+      }) }}
 
-    <div class="nhsuk-button-group">
-      {{ button
-        ({ 
-          text: 'Submit (I)',
-          href: "case"
-        })
-      }}
-      {{ button
-        ({ classes: "nhsuk-button--secondary", 
-          text: 'Cancel (M)',
-          href: "../search"
-        }) 
-      }}
+      <div class="nhsuk-button-group">
+        {{ button
+          ({ 
+            text: 'Submit (I)',
+            href: "case"
+          })
+        }}
+        {{ button
+          ({ classes: "nhsuk-button--secondary", 
+            text: 'Cancel (M)',
+            href: "../search"
+          }) 
+        }}
+      </div>
+
+      </div>
     </div>
-
   </div>
 </div>
 
@@ -173,20 +173,34 @@
 
   .summary-list--single-line .nhsuk-summary-list__row {
     display: flex;
-    flex-wrap: nowrap;
-    align-items: flex-start;
+    align-items: center;
+  }
+
+  .summary-list--single-line .nhsuk-summary-list__value {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.summary-list--single-line .nhsuk-summary-list__key {
+  flex: 0 0 auto;
+  min-width: 12rem;
+}
+
+.summary-list-radios {
+    display: flex;
+    white-space: nowrap;
   }
 
   /* --------------------------------------------------- */
-  /* STACKING BREAKPOINT 1 — small screens (≤425px)      */
+  /* Mobile screens (≤425px)      */
   /* --------------------------------------------------- */
   @media (max-width: 425px) {
 
     .summary-list--single-line .nhsuk-summary-list__row {
-      flex-direction: column;
+      display: flex;
       align-items: flex-start;
-      gap: 0.25rem;
-      padding-bottom: 0.5rem;
+      flex-direction: column;
     }
 
     .summary-list--single-line .nhsuk-summary-list__key {
@@ -196,15 +210,16 @@
   }
 
 
-  .summary-list-radios {
-    display: flex;
-    white-space: nowrap;
+      /* --------------------------------------------------- */
+    /* GRID COLUMN BREAKPOINT — 1024px only   */
+    /* --------------------------------------------------- */
+    @media (min-width: 1024px) and (max-width: 1024px) {
+      .nhsuk-grid-column-one-half {
+      width: 66.666%
+    }
   }
 
-  .fulfilment-value {
-    display: flex;
-    align-items: center;
-  }
+
 
 </style>
 
