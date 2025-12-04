@@ -18,7 +18,7 @@
 </div>
 
 <div class="nhsuk-grid-row">
-  <div class="nhsuk-grid-column-two-thirds">
+  <div class="nhsuk-grid-column-one-half">
     <div class="nhsuk-card nhsuk-card--grey">
       <div class="nhsuk-card__content">
 
@@ -31,7 +31,7 @@
           classes: "nhsuk-summary-list--no-border postcode-summary",
           rows: [
             {
-              key: { text: "Postcode (Z)" },
+              key: { text: "Postcode" },
               value: {
                 html:
                   '<div class="postcode-value">' +
@@ -66,12 +66,12 @@
 
                       '<div class="postcode-buttons">' +
                         button({ 
-                          text: "Select address (W)", 
+                          text: "Select address", 
                           classes: "nhsuk-button",
                           href: "edit-personal-details"
                         }) +
                         button({ 
-                          text: "Enter address manually (N)", 
+                          text: "Enter address manually", 
                           classes: "nhsuk-button--secondary-solid",
                           href: "edit-personal-details"
                         }) +
@@ -118,7 +118,7 @@
 
 /* Small spacing between postcode text and "Change" link */
 .postcode-text + .nhsuk-summary-list__action {
-  margin-left: 1.5rem;
+  margin-left: 1rem;
 }
 
 

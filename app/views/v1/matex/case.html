@@ -1,6 +1,6 @@
 {% extends 'layout-fullscreen.html' %}
 
-{% set pageName = 'MATEX Case' %}
+{% set pageName = 'Certificate summary' %}
 
 {% block beforeContent %}
  {{ backLink({
@@ -52,7 +52,7 @@
                 text: "Status"
               },
               value: {
-                html: "ISSUED"
+                html: "Active"
               }
             },
             {
@@ -97,7 +97,8 @@
             },
             {
               key: {
-                text: "HCP identifier"
+                text: "Health care provider",
+                classes: "wrap-key"
               },
               value: {
                 html: ""
@@ -105,6 +106,7 @@
             }
           ]
         })
+
       }) }}
     
     </div>
@@ -121,43 +123,38 @@
           classes: "summary-list--single-line",
           rows: [
             {
-              classes: "nhsuk-summary-list__row--wrap",
               key: {
-                text: "Surname"
+                text: "Last name"
               },
               value: {
-                text: "Smith"
+                text: "Smith "
               }
             },
             {
-              classes: "nhsuk-summary-list__row--wrap",
               key: {
-                text: "Forename"
+                text: "First name"
               },
               value: {
                 text: "Jane"
               }
             },
             {
-              classes: "nhsuk-summary-list__row--wrap",
               key: {
-                text: "Address Line 1"
+                text: "Address line 1"
               },
               value: {
                 html: ""
               }
             },
             {
-              classes: "nhsuk-summary-list__row--wrap",
               key: {
-                text: "Address Line 2"
+                text: "Address line 2"
               },
               value: {
                 html: ""
               }
             },
             {
-              classes: "nhsuk-summary-list__row--wrap",
               key: {
                 text: "Postcode"
               },
@@ -186,11 +183,10 @@
                 text: "NHS number"
               },
               value: {
-                html: "1234567890"
+                html: "123 456 7890"
               }
             },
             {
-              classes: "nhsuk-summary-list__row--wrap",
               key: {
                 text: "Email address"
               },
@@ -200,7 +196,8 @@
             },
             {
               key: {
-                text: "Due/Birth Date"
+                text: "Child's due or birth date",
+                classes: "wrap-key"
               },
               value: {
                 html: "9 August 2026"
@@ -210,7 +207,7 @@
         })
         +
         button({
-          text: "Edit personal details (P)",
+          text: "Edit personal details",
           classes: "nhsuk-button--secondary nhsuk-u-margin-top-5",
           href: "edit-personal-details"
         })
@@ -250,13 +247,13 @@
 <div class="nhsuk-grid-row-buttons">
 
     {{ button({
-      text: 'Reissue certificate (K)',
+      text: 'Reissue certificate',
       href: "reissue"
     }) }}
 
     {{ button({
       classes: "nhsuk-button--secondary-solid",
-      text: 'Cancel (M)',
+      text: 'Cancel',
       href: "../search"
     }) }}
 
@@ -291,6 +288,10 @@
         white-space: normal;
         overflow-wrap: anywhere;
         word-break: break-word;
+      }
+
+      .summary-list--single-line .wrap-key {
+        white-space: normal;
       }
 
       /* Buttons row (default: left & right inline) */
@@ -358,6 +359,10 @@
           align-items: stretch;
           gap: 0.5rem;
         }
+
+        .summary-list--single-line .wrap-key {
+          white-space: nowrap;
+      }
       }
       
       /* --------------------------------------------------- */

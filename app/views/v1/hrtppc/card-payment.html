@@ -1,0 +1,55 @@
+{% extends 'layout-fullscreen-normal-content.html' %}
+
+{% set pageName = 'Card payment' %}
+
+{% block beforeContent %}
+ {{ backLink({
+    href: 'javascript:history.go(-1)',
+    text: 'Back'
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+    <h1 class="nhsuk-heading-l">{{ pageName }}</h1>
+  </div>
+</div>
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    {% from "card/macro.njk" import card %}
+
+    {% set cardDescriptionHtml %}
+      <p>Payment provider reference number:</p>
+      <p class="nhsuk-u-font-size-36"><strong>43567</strong></p>
+    {% endset %}
+
+    {{ card({
+      classes: "nhsuk-card--grey",
+      heading: "Payment provider number to call",
+      headingLevel: "3",
+      descriptionHtml: cardDescriptionHtml
+      
+    }) }}
+
+
+        <div class="nhsuk-button-group">
+          {{ button
+            ({ 
+              text: 'Submit',
+              href: "../search"
+            })
+          }}
+          {{ button
+            ({ classes: "nhsuk-button--secondary-solid", 
+              text: 'Cancel',
+              href: "../search"
+            }) 
+          }}
+        </div>
+
+
+{% endblock %}

@@ -1,0 +1,201 @@
+{% extends 'layout-fullscreen-normal-content.html' %}
+
+{% set pageName = 'Check their answers' %}
+
+{% block beforeContent %}
+ {{ backLink({
+    href: 'javascript:history.go(-1)',
+    text: 'Back'
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+    <h1 class="nhsuk-heading-l">{{ pageName }}</h1>
+  </div>
+</div>
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+    <div class="nhsuk-card nhsuk-card--grey">
+      <div class="nhsuk-card__content">
+
+                
+              <h2 class="nhsuk-heading-m">
+                Applicant's details
+              </h2>
+        
+              {{ summaryList({
+                rows: [
+                  {
+                    key: {
+                      text: "Name"
+                    },
+                    value: {
+                      text: "Jane Smith"
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Date of birth"
+                    },
+                    value: {
+                      html: "29 November 1974"
+                    }
+                  },
+                  {
+                    key: {
+                      text: "NHS number"
+                    },
+                    value: {
+                      text: "123 456 7890"
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Address"
+                    },
+                    value: {
+                      html: "101 Test Road<br>Stella<br>Goldcrest<br>TR11 0TS"
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Receive HRT PPC and renewal reminder by email or post"
+                    },
+                    value: {
+                      html: "Email"
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Email address"
+                    },
+                    value: {
+                      html: "jane.smith@example.com"
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Phone number"
+                    },
+                    value: {
+                      html: "07123456789"
+                    }
+                  }
+                ]
+              }) }}
+
+              <div class="edit-button">
+                {{ button({
+                  text: "Edit applicant's details",
+                  classes: "nhsuk-button--secondary-solid",
+                  href: "new-application"
+                }) }}
+              </div>
+        
+              <h2 class="nhsuk-heading-m">
+                Certificate details
+              </h2>
+        
+              {{ summaryList({
+                rows: [
+                  {
+                    key: {
+                      text: "Length"
+                    },
+                    value: {
+                      text: "12 months"
+                    }
+                  },
+                  {
+                    key: { 
+                      text: "Start date" 
+                    },
+                    value: { 
+                      html: "24 November 2025"
+                    }
+                  },
+                  {
+                    key: { 
+                      text: "Expiry date" 
+                    },
+                    value: { 
+                      html: "23 November 2026" 
+                    }
+                  },
+                  {
+                    key: { 
+                      text: "Total cost" 
+                    },
+                    value: { 
+                      html: data.v1.HRTPPCCost
+                    }
+                  },
+                  {
+                    key: { 
+                      text: "Payment method" 
+                    },
+                    value: { 
+                      html: "Card payment" 
+                    }
+                  }
+                ]
+              }) }}
+        
+              <h2 class="nhsuk-heading-m">
+                Notes
+              </h2>
+        
+              {{ summaryList({
+                rows: [
+                  {
+                    key: {
+                      text: "Notes"
+                    },
+                    value: {
+                      text: "	A new HRT prepaid certificate created using telephony sales channel."
+                    }
+                  }
+                ]
+                }) }}
+
+                {% call warningCallout({
+                  heading: "Reminder"
+                }) %}
+                <p>This PPC only covers certain Hormone Replacement Therapy (HRT) medication.</p>
+                <p>If the customer requires medication for something other than HRT, a Prescription Prepayment Certificate (PPC) may be better for them.</p>
+                {% endcall %}                
+
+
+                <div class="nhsuk-button-group">
+                  {{ button
+                    ({ 
+                      text: 'Card payment call',
+                      href: "card-payment"
+                    })
+                  }}
+                  {{ button
+                    ({ classes: "nhsuk-button--secondary-solid", 
+                      text: 'Cancel',
+                      href: "../search"
+                    }) 
+                  }}
+                </div>
+
+        
+
+<style>
+  
+  .edit-button .nhsuk-button {
+      padding: 8px 16px;
+    }
+
+
+</style>
+
+
+
+{% endblock %}

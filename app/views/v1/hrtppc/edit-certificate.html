@@ -1,4 +1,4 @@
-{% extends 'layout-fullscreen.html' %}
+{% extends 'layout-fullscreen-normal-content.html' %}
 
 {% set pageName = 'Edit certificate details' %}
 
@@ -18,7 +18,7 @@
 </div>
 
 <div class="nhsuk-grid-row">
-  <div class="nhsuk-grid-column-one-half">
+  <div class="nhsuk-grid-column-full">
     <div class="nhsuk-card nhsuk-card--grey">
       <div class="nhsuk-card__content">
 
@@ -60,7 +60,7 @@
         heading: "Certificate details",
         headingLevel: "2",
         headingClasses: "nhsuk-heading-s",
-          classes: "summary-list--single-line",
+          classes: "nhsuk-summary-list--no-border",
           rows: [
             {
               key: { 
@@ -87,7 +87,7 @@
                 text: "Status" 
               },
               value: {
-                html: "ACTIVE" 
+                html: "Active" 
                 }
             },
             {
@@ -100,7 +100,7 @@
             },
             {
               key: { 
-                text: "Fulfilment (F)" 
+                text: "Fulfilment" 
               },
               value: {
                 classes: "fulfilment-value",
@@ -111,12 +111,12 @@
                   items: [
                     { 
                       value: "email", 
-                      text: "Email (L)",
+                      text: "Email",
                       checked: true
                     },
                     { 
                       value: "post", 
-                      text: "Post (N)" 
+                      text: "Post" 
                     }
                   ]
                 })
@@ -124,7 +124,7 @@
             },
             {
               key: { 
-                text: "Start date (D)" 
+                text: "Start date" 
               },
               value: { 
                 html: certificateStart
@@ -145,6 +145,19 @@
               value: { 
                 html: "25 November 2025" 
               }
+            },
+            {
+              classes: "nhsuk-summary-list__row--no-border",
+              key: { 
+                text: "Notes" 
+              },
+              value:
+              { 
+                html: textarea ({
+                  id: "notes",
+                  name: "notes"
+                })
+              }
             }
           ]
       }) }}
@@ -152,13 +165,13 @@
       <div class="nhsuk-button-group">
         {{ button
           ({ 
-            text: 'Submit (I)',
+            text: 'Submit',
             href: "case"
           })
         }}
         {{ button
           ({ classes: "nhsuk-button--secondary-solid", 
-            text: 'Cancel (M)',
+            text: 'Cancel',
             href: "../search"
           }) 
         }}
@@ -171,46 +184,13 @@
 
 <style>
 
-  .summary-list--single-line .nhsuk-summary-list__row {
-    display: flex;
-    align-items: center;
-  }
-
-  .summary-list--single-line .nhsuk-summary-list__value {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .5rem;
-}
-
-.summary-list--single-line .nhsuk-summary-list__key {
-  flex: 0 0 auto;
-  min-width: 12rem;
-}
-
 .summary-list-radios {
     display: flex;
     white-space: nowrap;
   }
 
-  /* --------------------------------------------------- */
-  /* Mobile screens (≤425px)      */
-  /* --------------------------------------------------- */
-  @media (max-width: 425px) {
 
-    .summary-list--single-line .nhsuk-summary-list__row {
-      display: flex;
-      align-items: flex-start;
-      flex-direction: column;
-    }
-
-    .summary-list--single-line .nhsuk-summary-list__key {
-      margin: 0;
-    }
-
-  }
-
-
-      /* --------------------------------------------------- */
+    /* --------------------------------------------------- */
     /* GRID COLUMN BREAKPOINT — 1024px only   */
     /* --------------------------------------------------- */
     @media (min-width: 1024px) and (max-width: 1024px) {
@@ -218,8 +198,6 @@
       width: 66.666%
     }
   }
-
-
 
 </style>
 

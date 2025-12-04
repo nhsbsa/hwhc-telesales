@@ -1,4 +1,4 @@
-{% extends 'layout-fullscreen.html' %}
+{% extends 'layout-fullscreen-normal-content.html' %}
 
 {% set pageName = 'Edit personal details' %}
 
@@ -18,7 +18,7 @@
 </div>
 
 <div class="nhsuk-grid-row">
-  <div class="nhsuk-grid-column-two-thirds">
+  <div class="nhsuk-grid-column-full">
     <div class="nhsuk-card nhsuk-card--grey">
       <div class="nhsuk-card__content">
 
@@ -30,7 +30,7 @@
               rows: [
                 {
                   key: { 
-                    text: "First name (F)"
+                    text: "First name"
                   },
                   value: 
                   { 
@@ -43,7 +43,7 @@
                 },
                 {
                   key: { 
-                    text: "Last name (L)"
+                    text: "Last name"
                   },
                   value:
                   { 
@@ -56,7 +56,7 @@
                 },
                 {
                   key: { 
-                    text: "Address line 1 (1)" 
+                    text: "Address line 1" 
                   },
                   value:
                   { 
@@ -69,7 +69,7 @@
                 },
                 {
                   key: { 
-                    text: "Address line 2 (2)" 
+                    text: "Address line 2" 
                   },
                   value:
                   { 
@@ -82,7 +82,7 @@
                 },
                 {
                   key: { 
-                    text: "Town (T)" 
+                    text: "Town" 
                   },
                   value:
                   { 
@@ -96,7 +96,7 @@
                 },
                 {
                   key: { 
-                  text: "Postcode (P)" 
+                  text: "Postcode" 
                   },
                   classes: "postcode-value",
                   value: 
@@ -123,7 +123,7 @@
                 },
                 {
                   key: { 
-                    text: "Telephone number (N)" 
+                    text: "Telephone number" 
                   },
                   value:
                   { 
@@ -137,7 +137,7 @@
                 },
                 {
                   key: { 
-                    text: "Date of birth (D)" 
+                    text: "Date of birth" 
                   },
                   value: { 
                     html: dateInput({
@@ -165,7 +165,7 @@
                 },
                 {
                   key: { 
-                    text: "Email address (E)" 
+                    text: "Email address" 
                   },
                   value:
                   { 
@@ -178,7 +178,7 @@
                 },
                 {
                   key: { 
-                    text: "NHS number (H)" 
+                    text: "NHS number" 
                   },
                   value:
                   { 
@@ -189,6 +189,18 @@
                       value: "1234567890"
                     })
                   }
+                },
+                {
+                  key: { 
+                    text: "Notes" 
+                  },
+                  value:
+                  { 
+                    html: textarea ({
+                      id: "notes",
+                      name: "notes"
+                    })
+                  }
                 }
               ]
           }) }}
@@ -196,13 +208,13 @@
         <div class="nhsuk-button-group">
           {{ button
             ({ 
-              text: 'Submit (I)',
+              text: 'Submit',
               href: "case"
             })
           }}
           {{ button
             ({ classes: "nhsuk-button--secondary-solid", 
-              text: 'Cancel (M)',
+              text: 'Cancel',
               href: "../search"
             }) 
           }}
@@ -222,7 +234,7 @@
 
     .postcode-button .nhsuk-button {
       margin: 0;
-      padding: 8px 12px;
+      padding: 8px 16px;
     }
 
   /* --------------------------------------------------- */

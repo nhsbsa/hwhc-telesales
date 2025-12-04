@@ -1,4 +1,4 @@
-{% extends 'layout-fullscreen.html' %}
+{% extends 'layout-fullscreen-normal-content.html' %}
 
 {% set pageName = 'Edit personal details' %}
 
@@ -18,7 +18,7 @@
 </div>
 
 <div class="nhsuk-grid-row">
-  <div class="nhsuk-grid-column-two-thirds">
+  <div class="nhsuk-grid-column-full">
     <div class="nhsuk-card nhsuk-card--grey">
       <div class="nhsuk-card__content">
 
@@ -30,20 +30,7 @@
               rows: [
                 {
                   key: { 
-                    text: "Forename (S)"
-                  },
-                  value: 
-                  { 
-                    html: input ({
-                      id: "first-name",
-                      name: "firstName",
-                      value: "Jane"
-                    })
-                  }
-                },
-                {
-                  key: { 
-                    text: "Surname (A)"
+                    text: "Last name"
                   },
                   value:
                   { 
@@ -56,7 +43,20 @@
                 },
                 {
                   key: { 
-                    text: "Address line 1 (1)" 
+                    text: "First name"
+                  },
+                  value: 
+                  { 
+                    html: input ({
+                      id: "first-name",
+                      name: "firstName",
+                      value: "Jane"
+                    })
+                  }
+                },
+                {
+                  key: { 
+                    text: "Address line 1" 
                   },
                   value:
                   { 
@@ -69,7 +69,7 @@
                 },
                 {
                   key: { 
-                    text: "Address line 2 (2)" 
+                    text: "Address line 2" 
                   },
                   value:
                   { 
@@ -82,7 +82,7 @@
                 },
                 {
                   key: { 
-                    text: "Town (3)" 
+                    text: "Town or city" 
                   },
                   value:
                   { 
@@ -96,7 +96,7 @@
                 },
                 {
                   key: { 
-                  text: "Postcode (Z)" 
+                  text: "Postcode" 
                   },
                   value: 
                   {
@@ -111,7 +111,7 @@
                       
                       <div class="postcode-button">
                         ' + button({
-                          text: "Edit address using postcode search (S)",
+                          text: "Edit address using postcode search",
                           classes: "nhsuk-button--secondary-solid",
                           href: "postcode-search"
                         }) + '
@@ -122,7 +122,7 @@
                 },
                 {
                   key: { 
-                    text: "Date of birth (D)" 
+                    text: "Date of birth" 
                   },
                   value: { 
                     html: input({
@@ -134,7 +134,7 @@
                 },
                 {
                   key: { 
-                    text: "Telephone number (C)" 
+                    text: "Telephone number" 
                   },
                   value:
                   { 
@@ -148,7 +148,7 @@
                 },
                 {
                   key: { 
-                    text: "Email address (G)" 
+                    text: "Email address" 
                   },
                   value:
                   { 
@@ -161,7 +161,7 @@
                 },
                 {
                   key: { 
-                    text: "Due/Birth Date (X)" 
+                    text: "Child's due or birth date" 
                   },
                   value: { 
                     html: input({
@@ -173,7 +173,7 @@
                 },
                 {
                   key: { 
-                    text: "NHS number (V)" 
+                    text: "NHS number" 
                   },
                   value:
                   { 
@@ -187,7 +187,7 @@
                 },
                 {
                   key: { 
-                    text: "Notes (B)" 
+                    text: "Notes" 
                   },
                   value:
                   { 
@@ -203,13 +203,13 @@
         <div class="nhsuk-button-group">
           {{ button
             ({ 
-              text: 'Submit (I)',
+              text: 'Submit',
               href: "case"
             })
           }}
           {{ button
             ({ classes: "nhsuk-button--secondary-solid", 
-              text: 'Cancel (M)',
+              text: 'Cancel',
               href: "../search"
             }) 
           }}
@@ -221,52 +221,19 @@
 
 <style>
 
-    .postcode-block {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .postcode-button .nhsuk-button {
-      margin: 0;
-      padding: 8px 12px;
-    }
-
-  /* --------------------------------------------------- */
-  /* STACKING BREAKPOINT — small screens (≤425px)      */
-  /* --------------------------------------------------- */
-  @media (max-width: 425px) {
-
-    .summary-list--single-line .nhsuk-summary-list__row {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.25rem;
-      padding-bottom: 0.5rem;
-    }
-
-    .summary-list--single-line .nhsuk-summary-list__key {
-      margin: 0;
-    }
-
+  .postcode-button .nhsuk-button {
+    margin: 0;
+    padding: 8px 12px;
   }
+
+
 
     /* --------------------------------------------------- */
     /* GRID COLUMN BREAKPOINT — 1024px only   */
     /* --------------------------------------------------- */
     @media (min-width: 1024px) and (max-width: 1024px) {
-      .nhsuk-grid-column-two-thirds {
+      .nhsuk-grid-column-one-half {
       width: 100%
-    }
-  }
-
-    /* --------------------------------------------------- */
-    /* GRID COLUMN BREAKPOINT 2 — 768px only   */
-    /* --------------------------------------------------- */
-  @media (max-width: 768px) {
-
-    .postcode-inline {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0;
     }
   }
 

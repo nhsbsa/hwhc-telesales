@@ -10,7 +10,9 @@ module.exports = {
         currentPage: 0,
         certificateTypes: ['matex','hrtppc'],
         sortBy: 'lastName',
-        sortDirection: 'descending'
+        sortDirection: 'descending',
+        NHSPrescriptionCost: '£9.90',
+        HRTPPCCost: '£19.80'
     }
 
 }

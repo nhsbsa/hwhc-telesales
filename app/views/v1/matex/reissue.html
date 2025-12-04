@@ -33,7 +33,7 @@
                 text: "Reference"
               },
               value: {
-                text: "HRT AF4A 488E"
+                text: "123 4567 8901"
               }
             },
             {
@@ -42,8 +42,8 @@
               },
               value: {
                 html: tag({
-                  text: "HRT PPC",
-                  classes: "nhsuk-tag--blue"
+                  text: "MATEX",
+                  classes: "nhsuk-tag--green"
                 })
               }
             },
@@ -60,7 +60,7 @@
                 text: "Channel"
               },
               value: {
-                html: "Online"
+                html: "Digital"
               }
             },
             {
@@ -142,21 +142,51 @@
           classes: "summary-list--single-line",
           rows: [
             {
-              classes: "nhsuk-summary-list__row--wrap",
               key: {
-                text: "Name"
+                text: "Last name"
               },
               value: {
-                text: "Jane Smith"
+                text: "Smith "
               }
             },
             {
-              classes: "nhsuk-summary-list__row--wrap",
               key: {
-                text: "Address"
+                text: "First name"
               },
               value: {
-                html: "101 Test Lane<br>Stella<br>Goldcrest<br>TR110TS"
+                text: "Jane"
+              }
+            },
+            {
+              key: {
+                text: "Address line 1"
+              },
+              value: {
+                html: ""
+              }
+            },
+            {
+              key: {
+                text: "Address line 2"
+              },
+              value: {
+                html: ""
+              }
+            },
+            {
+              key: {
+                text: "Postcode"
+              },
+              value: {
+                html: "TR11 0TS"
+              }
+            },
+            {
+              key: {
+                text: "Telephone number"
+              },
+              value: {
+                html: ""
               }
             },
             {
@@ -164,11 +194,18 @@
                 text: "Date of birth"
               },
               value: {
-                html: "28 November 1970"
+                html: "24 July 1997"
               }
             },
             {
-              classes: "nhsuk-summary-list__row--wrap",
+              key: {
+                text: "NHS number"
+              },
+              value: {
+                html: "123 456 7890"
+              }
+            },
+            {
               key: {
                 text: "Email address"
               },
@@ -178,14 +215,16 @@
             },
             {
               key: {
-                text: "NHS number"
+                text: "Child's due or birth date",
+                classes: "wrap-key"
               },
               value: {
-                html: "1234567890"
+                html: "9 August 2026"
               }
             }
           ]
         })
+
       }) }}
     </div>
 
@@ -238,11 +277,11 @@
         word-break: break-word;
       }
 
-
       .summary-list-radios {
           display: flex;
           white-space: nowrap;
         }
+
 
       /* --------------------------------------------------- */
       /* STACKING BREAKPOINT 1 — small screens (≤425px)      */
@@ -290,13 +329,13 @@
           .nhsuk-grid-row-buttons {
             margin-top: 2rem;
 
-        }
+          }
 
-        .nhsuk-button--secondary {
-          margin-left: 1rem;
-        }
+          .nhsuk-button--secondary {
+            margin-left: 1rem;
+          }
 
-      }
+        }
 
 
     </style>

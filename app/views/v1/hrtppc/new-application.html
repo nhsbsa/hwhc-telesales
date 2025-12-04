@@ -1,0 +1,304 @@
+{% extends 'layout-fullscreen-normal-content.html' %}
+
+{% set pageName = 'New HRT PPC application' %}
+
+{% block beforeContent %}
+ {{ backLink({
+    href: 'javascript:history.go(-1)',
+    text: 'Back'
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+    <h1 class="nhsuk-heading-l">{{ pageName }}</h1>
+  </div>
+</div>
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+    <div class="nhsuk-card nhsuk-card--grey">
+      <div class="nhsuk-card__content">
+
+        <h2 class="nhsuk-heading-m">Applicant's details</h2>
+
+        <h3 class="nhsuk-heading-s">Applicant's address</h3>
+
+
+        {% call fieldset({
+
+        }) %}
+
+          {{ input({
+            label: {
+              text: "Address line 1"
+            },
+            id: "address-line-1",
+            name: "addressLine1",
+            autocomplete: "address-line1"
+          }) }}
+
+          {{ input({
+            label: {
+              text: "Address line 2 (optional)"
+            },
+            id: "address-line-2",
+            name: "addressLine2",
+            autocomplete: "address-line2"
+          }) }}
+
+          {{ input({
+            label: {
+              text: "Town or city"
+            },
+            classes: "nhsuk-u-width-one-half",
+            id: "address-town",
+            name: "addressTown",
+            autocomplete: "address-level2"
+          }) }}
+
+          {{ input({
+            label: {
+              text: "Postcode"
+            },
+            classes: "nhsuk-u-width-one-quarter",            id: "address-postcode",
+            name: "addressPostcode",
+            autocomplete: "postal-code",
+            spellcheck: false
+          }) }}
+
+          <div class="postcode-button">
+            {{ button({
+              text: "Get address using postcode search",
+              classes: "nhsuk-button--secondary-solid",
+              href: "postcode-search"
+            }) }}
+          </div>
+
+          {% call details({
+            summaryText: "They don't know which address to use?"
+          }) %}
+            <h4 class="nhsuk-heading-s">If they have more than one address</h4>
+            <p>They should use the address that their GP or dentist holds for them. For example, if they're a student living away from home, this could be their home or term time address.</p>
+            
+            <h4 class="nhsuk-heading-s">If they don't have a permanent address</h4>
+            <p>If they're homeless and living in temporary accommodation (for example, a long term hostel), they should use the address that their GP holds for them.</p>
+          {% endcall %}
+
+        {% endcall %}
+
+        <hr class="nhsuk-u-margin-top-0">
+
+        <h3 class="nhsuk-heading-s">Applicant's name</h3>
+
+        {{ input({
+          classes: "nhsuk-u-width-two-thirds",
+          id: "first-name",
+          name: "firstName",
+          label: {
+            text: "First name"
+          }
+        }) }}
+
+        {{ input({
+          classes: "nhsuk-u-width-two-thirds",
+          id: "last-name",
+          name: "lastName",
+          label: {
+            text: "Last name"
+          }
+        }) }}
+
+
+        <hr class="nhsuk-u-margin-top-0">
+
+        <h3 class="nhsuk-heading-s">Date of birth</h3>
+
+        {{ dateInput({
+          id: "date-of-birth",
+          namePrefix: "dateOfBirth",
+          fieldset: {
+          },
+          items: [
+            {
+              name: "day",
+              classes: "nhsuk-input--width-2"
+            },
+            {
+              name: "month",
+              classes: "nhsuk-input--width-2"
+            },
+            {
+              name: "year",
+              classes: "nhsuk-input--width-4"
+            }
+          ]
+        }) }}
+
+
+        <hr class="nhsuk-u-margin-top-0">
+
+        <h3 class="nhsuk-heading-s">NHS number (Optional)</h3>
+
+        {{ input({
+          classes: "nhsuk-u-width-one-third",
+          id: "nhs-number",
+          name: "nhsNumber",
+          label: {
+            text: "NHS number"
+          }
+        }) }}
+
+
+        <hr class="nhsuk-u-margin-top-0">
+
+        <h3 class="nhsuk-heading-s">Certificate start date</h3>
+
+        {{ dateInput({
+          id: "start-date",
+          namePrefix: "startDate",
+          fieldset: {
+          },
+          hint: {
+            text: "The start date of the HRT PPC must be 30 days in the past or the future."
+          },
+          items: [
+            {
+              name: "day",
+              classes: "nhsuk-input--width-2"
+            },
+            {
+              name: "month",
+              classes: "nhsuk-input--width-2"
+            },
+            {
+              name: "year",
+              classes: "nhsuk-input--width-4"
+            }
+          ]
+        }) }}
+
+
+        <hr class="nhsuk-u-margin-top-0">
+
+        <h3 class="nhsuk-heading-s">Certificate fulfilment</h3>
+
+        {% set emailHtml %}
+          {{ input({
+            id: "email",
+            name: "email",
+            classes: "nhsuk-u-width-two-thirds",
+            label: {
+              text: "Email address"
+            }
+          }) }}
+        {% endset -%}
+
+        {{ radios({
+          fieldset: {
+            legend: {
+              text: "How do they want to receive their HRT PPC?",
+                size: "l",
+              isPageHeading: false
+            }
+          },
+          hint: {
+            text: "We'll send them a renewal reminder one month before their HRT PPC is due to expire."
+          },
+          items: [
+            {
+              value: "email",
+              text: "Email",
+              conditional: {
+                html: emailHtml
+              }
+            },
+            {
+              value: "post",
+              text: "Post"
+            }
+          ]
+        }) }}
+<!-- 
+        <hr class="nhsuk-u-margin-top-0">
+
+        <h3 class="nhsuk-heading-s">Contact details</h3>
+
+        {{ input({
+          classes: "nhsuk-u-width-two-thirds",
+          id: "email",
+          name: "email",
+          label: {
+            text: "Email address"
+          }
+        }) }}
+
+        {{ input({
+          classes: "nhsuk-u-width-one-third",
+          id: "phone-number",
+          name: "phoneNumber",
+          label: {
+            text: "Phone number"
+          }
+        }) }} -->
+
+        <hr class="nhsuk-u-margin-top-0">
+
+        <h3 class="nhsuk-heading-s">Payment</h3>
+
+        {{ warningCallout({
+          heading: "Important information",
+          headingLevel: 4,
+          text: "Advise the customer that payments for a 12 month HRT PPC can only be made in a single credit or debit card payment of " ~ data.v1.HRTPPCCost ~ " at this time."
+        }) }}
+
+
+        <hr class="nhsuk-u-margin-top-0">
+
+        <h3 class="nhsuk-heading-s">Notes</h3>
+
+        {{ textarea({
+          name: "example",
+          id: "example",
+          value: "A new HRT prepaid certificate created using telephony sales channel."
+        }) }}
+        
+
+        <div class="nhsuk-button-group">
+          {{ button
+            ({ 
+              text: 'Submit',
+              href: "check-their-answers"
+            })
+          }}
+          {{ button
+            ({ classes: "nhsuk-button--secondary-solid", 
+              text: 'Cancel',
+              href: "../search"
+            }) 
+          }}
+        </div>
+      </div>
+      </div>
+    </div>
+</div>
+
+<style>
+
+    .postcode-block {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .postcode-button .nhsuk-button {
+      padding: 8px 16px;
+    }
+
+
+</style>
+
+
+
+{% endblock %}

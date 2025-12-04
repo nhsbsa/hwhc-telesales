@@ -20,10 +20,34 @@
 
         <h1 class="nhsuk-heading-m">{{ pageName }}</h1>
 
+        {% if data.searchCertificateType in ['hrtppc', ''] %}
+
+        <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-one-half">
+            {{ insetText({
+              classes: 'nhsuk-inset-text--summary',
+              html: '<p class="nhsuk-body-s">'+data.summaryText+'&nbsp;&nbsp;<a class="nhsuk-link" href="search">Change search</a></p>'
+            }) }}
+          </div>
+
+          <div class="nhsuk-grid-column-one-half">
+            {{ button({
+              text: "Start HRT PPC application",
+              classes: 'nhsuk-u-float-right nhsuk-button nhsuk-u-margin-0',
+              href: "hrtppc/new-application"
+            }) }}
+          </div>
+        </div>
+
+        {% else %}
+
         {{ insetText({
           classes: 'nhsuk-inset-text--summary',
           html: '<p class="nhsuk-body-s">'+data.summaryText+'&nbsp;&nbsp;<a class="nhsuk-link" href="search">Change search</a></p>'
         }) }}
+
+        {% endif %}
+
 
           {% if ( filteredRows.length > 0 ) %}
 

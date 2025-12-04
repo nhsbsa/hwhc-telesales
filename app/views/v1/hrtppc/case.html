@@ -1,6 +1,6 @@
 {% extends 'layout-fullscreen.html' %}
 
-{% set pageName = 'HRT PPC Case' %}
+{% set pageName = 'Certificate summary' %}
 
 {% block beforeContent %}
  {{ backLink({
@@ -99,7 +99,7 @@
         })
         +
         button({
-          text: "Edit certificate details (C)",
+          text: "Edit certificate details",
           classes: "nhsuk-button--secondary nhsuk-u-margin-top-5",
           href: "edit-certificate"
         })
@@ -119,7 +119,7 @@
           classes: "summary-list--single-line",
           rows: [
             {
-              classes: "nhsuk-summary-list__row--wrap",
+              classes: "nhsuk-summary-list__row",
               key: {
                 text: "Name"
               },
@@ -128,7 +128,7 @@
               }
             },
             {
-              classes: "nhsuk-summary-list__row--wrap",
+              classes: "nhsuk-summary-list__row",
               key: {
                 text: "Address"
               },
@@ -145,7 +145,7 @@
               }
             },
             {
-              classes: "nhsuk-summary-list__row--wrap",
+              classes: "nhsuk-summary-list__row",
               key: {
                 text: "Email address"
               },
@@ -165,7 +165,7 @@
         })
         +
         button({
-          text: "Edit personal details (P)",
+          text: "Edit personal details",
           classes: "nhsuk-button--secondary nhsuk-u-margin-top-5",
           href: "edit-personal-details"
         })
@@ -205,13 +205,13 @@
 <div class="nhsuk-grid-row-buttons">
 
     {{ button({
-      text: 'Reissue certificate (K)',
+      text: 'Reissue certificate',
       href: "reissue"
     }) }}
 
     {{ button({
       classes: "nhsuk-button--secondary-solid",
-      text: 'Cancel (M)',
+      text: 'Cancel',
       href: "../search"
     }) }}
 
