@@ -2,6 +2,16 @@
 
 {% set pageName = 'Search for a certificate' %}
 
+{% block beforeContent %}
+  {% if data.role === 'backOffice' %}
+  {{ backLink({
+      href: 'back-office-dashboard',
+      text: 'Back'
+    }) }}
+  {% endif %}
+{% endblock %}
+
+
 {% block content %}
 
   <div class="nhsuk-grid-row">
@@ -112,7 +122,7 @@
                   {% else %}
 
                     <input type="hidden" name="searchCertificateType" value="matex" />
-                    <input type="hidden" name="searchStatus" value="processing,pending-a,pending-b" />
+                    <input type="hidden" name="searchStatus" value="processing,reviewing,accepted" />
 
                   {% endif %}
 

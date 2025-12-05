@@ -1,6 +1,6 @@
 {% extends 'layout-fullscreen.html' %}
 
-{% set pageName = 'Form 2025 11 18 18 12 16N3000049' %}
+{% set pageName = 'Application 2025 11 18 18 12 16N3000049' %}
 {% set bannerRole = 'backOffice' %}
 
 {% block beforeContent %}
@@ -16,8 +16,8 @@
     <div class="nhsuk-grid-column-full">
 
       <h1 class="nhsuk-heading-m">{{ pageName }}
-        <span class="nhsuk-tag nhsuk-tag--green">MATEX</span>
-        <span class="nhsuk-tag nhsuk-tag--grey">Processing</span></h1>
+        {{ 'matex' | getCertificateTypeTextOrTag( true ) | safe }}
+        {{ 'processing' | getStatusTextOrTag( true ) | safe }}</h1>
 
     </div>
   </div>
@@ -50,7 +50,7 @@
 
               <h2 class="nhsuk-heading-m">Details to correct</h2>
 
-              <form action="process-form" method="post" novalidate>
+              <form action="process-application" method="post" novalidate>
 
 
                 {% call details({
@@ -297,8 +297,8 @@
                   }) }}
 
                   {{ button({
-                    text : 'Request more information',
-                    href: 'request-more-information',
+                    text : 'Cannot process application',
+                    href: 'cannot-process-application',
                     classes: 'nhsuk-button--secondary'
                   }) }}
 

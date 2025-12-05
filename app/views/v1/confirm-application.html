@@ -1,11 +1,11 @@
 {% extends 'layout-fullscreen.html' %}
 
-{% set pageName = 'Image 2025 11 18 18 12 16N3000049' %}
+{% set pageName = 'Application 2025 11 18 18 12 16N3000049' %}
 {% set bannerRole = 'backOffice' %}
 
 {% block beforeContent %}
  {{ backLink({
-    href: 'process-form',
+    href: 'process-application',
     text: 'Back'
   }) }}
 {% endblock %}
@@ -16,8 +16,8 @@
     <div class="nhsuk-grid-column-full">
 
       <h1 class="nhsuk-heading-m">{{ pageName }}
-        <span class="nhsuk-tag nhsuk-tag--green">MATEX</span>
-        <span class="nhsuk-tag nhsuk-tag--grey">Processing</span></h1>
+        {{ 'matex' | getCertificateTypeTextOrTag( true ) | safe }}
+        {{ 'processing' | getStatusTextOrTag( true ) | safe }}</h1>
 
     </div>
   </div>
@@ -67,7 +67,7 @@
                       value: { text: firstName | processFullName( lastName ) },
                       actions: {
                         items: [
-                          { href: 'process-form#imageLastName', text: 'Change', visuallyHiddenText: 'name' }
+                          { href: 'process-application#imageLastName', text: 'Change', visuallyHiddenText: 'name' }
                         ]
                       }
                     },
@@ -76,7 +76,7 @@
                       value: { text: data.dateOfBirth | processDate or '2 July 1995' },
                       actions: {
                          items: [
-                          { href: 'process-form#imageDateOfBirth', text: 'Change', visuallyHiddenText: 'date of birth' }
+                          { href: 'process-application#imageDateOfBirth', text: 'Change', visuallyHiddenText: 'date of birth' }
                         ]
                       }
                     },
@@ -85,7 +85,7 @@
                       value: { text: data.imageNHSNumber or '1234 456 678' },
                       actions: {
                          items: [
-                          { href: 'process-form#imageNHSNumber', text: 'Change', visuallyHiddenText: 'NHS number' }
+                          { href: 'process-application#imageNHSNumber', text: 'Change', visuallyHiddenText: 'NHS number' }
                         ]
                       }
                     },
@@ -94,7 +94,7 @@
                       value: { html: houseNumber | processAddress( addressLine1, addressLine2, town, county, postcode ) },
                       actions: {
                          items: [
-                          { href: 'process-form#imageHouseNumber', text: 'Change', visuallyHiddenText: 'Address' }
+                          { href: 'process-application#imageHouseNumber', text: 'Change', visuallyHiddenText: 'Address' }
                         ]
                       }
                     }
@@ -110,7 +110,7 @@
                       value: { text: data.imagePhoneNumber or '07911 123456' },
                       actions: {
                         items: [
-                          { href: 'process-form#imagePhoneNumber', text: 'Change', visuallyHiddenText: 'phone number' }
+                          { href: 'process-application#imagePhoneNumber', text: 'Change', visuallyHiddenText: 'phone number' }
                         ]
                       }
                     },
@@ -119,7 +119,7 @@
                       value: { text: data.imageEmailAddress },
                       actions: {
                          items: [
-                          { href: 'process-form#imageEmailAddress', text: 'Change', visuallyHiddenText: 'email address' }
+                          { href: 'process-application#imageEmailAddress', text: 'Change', visuallyHiddenText: 'email address' }
                         ]
                       }
                     }
@@ -136,7 +136,7 @@
                       value: { text: '10 August 2026' },
                       actions: {
                         items: [
-                          { href: 'process-form#imageBabyDateOfBirth', text: 'Change', visuallyHiddenText: "baby's date of birth" }
+                          { href: 'process-application#imageBabyDateOfBirth', text: 'Change', visuallyHiddenText: "baby's date of birth" }
                         ]
                       }
                     }
@@ -153,8 +153,8 @@
                   }) }}
 
                   {{ button({
-                    text : 'Request more information',
-                    href: 'request-more-information',
+                    text : 'Cannot process application',
+                    href: 'cannot-process-application',
                     classes: 'nhsuk-button--secondary'
                   }) }}
 

@@ -1,0 +1,119 @@
+{% extends 'layout-fullscreen.html' %}
+
+{% set pageName = 'Application 2025 11 18 18 12 16N3000049' %}
+{% set bannerRole = 'backOffice' %}
+
+{% block beforeContent %}
+ {{ backLink({
+    href: 'process-application',
+    text: 'Back'
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1 class="nhsuk-heading-m">{{ pageName }}
+        {{ 'matex' | getCertificateTypeTextOrTag( true ) | safe }}
+        {{ 'processing' | getStatusTextOrTag( true ) | safe }}</h1>
+
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+          <div class="nhsuk-grid-row">
+            <div class="nhsuk-grid-column-one-half">
+
+              <h2 class="nhsuk-heading-m nhsuk-u-visually-hidden">Scanned form</h2>
+
+              <details class="expandable-image">
+                <div class="expandable-image__inner">
+                  <img class="expandable-image__image" src="/images/FW8-MATEX-scan.png" alt=""/>
+                </div>
+                <summary class="expandable-image__button nhsuk-button">
+                  <span class="closed">Expand image</span>
+                  <span class="open">Shrink image</span></summary>
+              </details>
+
+            </div>
+
+            <div class="nhsuk-grid-column-one-half">
+
+
+      <div class="nhsuk-card nhsuk-card--grey">
+        <div class="nhsuk-card__content">
+
+              <h2 class="nhsuk-heading-m">Cannot process application</h2>
+
+
+              {% set unableToProcessHTML %}
+
+                {{ textarea({
+                  name: 'cannotProcessApplicationNotes',
+                  id: 'cannotProcessApplicationNotes',
+                  value: data.cannotProcessApplicationNotes,
+                  label: {
+                    text: 'Notes'
+                  }
+                }) }}
+
+              {% endset %}
+
+              
+               <form action="cannot-process-application" method="post" novalidate>
+
+                {{ radios({
+                  idPrefix: 'cannotProcessApplication',
+                  name: 'cannotProcessApplication',
+                  fieldset: {
+                    legend: {
+                      text: 'What would you like to do next?'
+                    }
+                  },
+                  items: [
+                    {
+                      value: 'sendALetter',
+                      text: 'Send a letter'
+                    },
+                    {
+                      value: 'paperKeyIn',
+                      text: 'Request a paper key-in'
+                    },
+                    {
+                      value: 'unableToProcess',
+                      text: 'Close the application',
+                      conditional: {
+                        html: unableToProcessHTML 
+                      }
+                    }
+                  ]
+                }) }}
+
+
+
+                
+
+
+                {{ button({
+                  text: 'Submit'
+                }) }}
+
+               </form>
+
+              
+        </div>
+      </div>
+
+            </div>
+
+          </div>
+
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -15,12 +15,12 @@ router.post(/search/, function (req, res) {
     res.redirect( destination );
 });
 
-router.post(/process-form/, function (req, res) {
-    const destination = 'confirm-form';
+router.post(/process-application/, function (req, res) {
+    const destination = 'confirm-application';
     res.redirect( destination );
 });
 
-router.post(/request-more-information/, function( req, res){
+router.post(/cannot-process-application/, function( req, res){
     const destination = 'confirmation-letter-sent';
     res.redirect( destination );
 });

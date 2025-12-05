@@ -1,6 +1,6 @@
 {% extends 'layout.html' %}
 
-{% set pageName = 'Fake patient data' %}
+{% set pageName = 'Data used in this prototype' %}
 
 {% block content %}
 
@@ -8,6 +8,64 @@
     <div class="nhsuk-grid-column-full">
 
           <h1 class="nhsuk-heading-l">{{ pageName }}</h1>
+
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-one-half">
+        <h2 class="nhsuk-heading-m">Certificate types used</h2>
+        {{ summaryList({
+           rows: [
+             {
+               key: { text: 'matex' | getCertificateTypeTextOrTag },
+               value: { html: 'matex' | getCertificateTypeTextOrTag( true ) }
+             },
+             {
+               key: { text: 'hrtppc' | getCertificateTypeTextOrTag },
+               value: { html: 'hrtppc' | getCertificateTypeTextOrTag( true ) }
+             }
+           ]
+         }) }}
+    </div>
+
+    <div class="nhsuk-grid-column-one-half">
+        <h2 class="nhsuk-heading-m">Statuses used</h2>
+         {{ summaryList({
+           rows: [
+             {
+               key: { text: 'processing' | getStatusTextOrTag },
+               value: { html: 'processing' | getStatusTextOrTag( true ) }
+             },
+             {
+               key: { text: 'reviewing' | getStatusTextOrTag },
+               value: { html: 'reviewing' | getStatusTextOrTag( true ) }
+             },
+             {
+               key: { text: 'accepted' | getStatusTextOrTag },
+               value: { html: 'accepted' | getStatusTextOrTag( true ) }
+             },
+             {
+               key: { text: 'active' | getStatusTextOrTag },
+               value: { html: 'active' | getStatusTextOrTag( true ) }
+             },
+             {
+               key: { text: 'expired' | getStatusTextOrTag },
+               value: { html: 'expired' | getStatusTextOrTag( true ) }
+             }
+           ]
+         }) }}
+    </div>
+  </div>
+  
+
+          
+
+          
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
 
           {% set filteredRows = '' | getPatientData | getTableRows %}
 
@@ -262,7 +320,7 @@
                 const patients = [];
 
                 const certificateTypes = document.querySelector('#certificateTypes').innerHTML.split(',');
-                const statuses = ['active','pending-a','pending-b','processing'];
+                const statuses = ['processing','reviewing','accepted','active','expired'];
 
                 names.forEach( function( name, i ){
 
