@@ -28,7 +28,7 @@
           <div class="nhsuk-grid-row">
             <div class="nhsuk-grid-column-one-half">
 
-              <h2 class="nhsuk-heading-m nhsuk-u-visually-hidden">Scanned form</h2>
+              <h2 class="nhsuk-heading-m nhsuk-u-visually-hidden">Scanned application</h2>
 
               <details class="expandable-image">
                 <div class="expandable-image__inner">
@@ -69,6 +69,7 @@
                 {{ radios({
                   idPrefix: 'cannotProcessApplication',
                   name: 'cannotProcessApplication',
+                  value: data.cannotProcessApplication,
                   fieldset: {
                     legend: {
                       text: 'What would you like to do next?'
@@ -80,12 +81,12 @@
                       text: 'Send a letter'
                     },
                     {
-                      value: 'paperKeyIn',
+                      value: 'requestPaperKeyIn',
                       text: 'Request a paper key-in'
                     },
                     {
                       value: 'unableToProcess',
-                      text: 'Close the application',
+                      text: 'Reject application',
                       conditional: {
                         html: unableToProcessHTML 
                       }

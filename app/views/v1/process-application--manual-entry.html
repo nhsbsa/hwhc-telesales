@@ -48,85 +48,93 @@
                <div class="nhsuk-card nhsuk-card--grey">
         <div class="nhsuk-card__content">
 
-              <h2 class="nhsuk-heading-m">Confirm patient details</h2>
+              <h2 class="nhsuk-heading-m">Confirm patient address</h2>
 
-              <form action="process-application" method="post" novalidate>
+              <form action="process-application--manual-entry" method="get" novalidate>
 
 
-                <!-- FULL NAME -->
                 {% call fieldset({
                   legend: {
-                    text: 'Personal details',
+                    html: 'Address',
                     classes: 'nhsuk-u-visually-hidden'
                   }
                 }) %}
 
-                {{ input({
-                    label: {
-                      html: 'Last name ' + 13 | getConfidenceTag
-                    },
-                    id: 'imageLastName',
-                    name: 'imageLastName',
-                    classes: 'nhsuk-input--width-20',
-                    value: data.imageLastName or 'Jaaahnson'
-                  }) }}
+                    {{ input({
+                      label: {
+                        html: 'House number or name ' + 67 | getConfidenceTag
+                      },
+                      id: 'imageBuildingNumberOrName',
+                      name: 'imageBuildingNumberOrName',
+                      classes: 'nhsuk-input--width-10',
+                      value: data.imageBuildingNumberOrName or '12'
+                    }) }}
 
-                  {{ input({
-                    label: {
-                      html: 'First name ' + 42 | getConfidenceTag
-                    },
-                    id: 'imageFirstName',
-                    name: 'imageFirstName',
-                    value: data.imageFirstName or 'Sorah',
-                    classes: 'nhsuk-input--width-20'
-                  }) }}
+                    {{ input({
+                      label: {
+                        html: 'Address line 1 ' + 87 | getConfidenceTag
+                      },
+                      id: 'imageAddressLine1',
+                      name: 'imageAddressLine1',
+                      value: data.imageAddressLine1 or 'Crown Passage'
+                    }) }}
 
-                  
+                    {{ input({
+                      label: {
+                        html: 'Address line 2 ' + 0 | getConfidenceTag + ' (optional)'
+                      },
+                      id: 'imageAddressLine2',
+                      name: 'imageAddressLine2',
+                      value: data.imageAddress2
+                    }) }}
 
-             
+                    {{ input({
+                      label: {
+                        html: 'Town or city ' + 77 | getConfidenceTag
+                      },
+                      classes: 'nhsuk-input--width-20',
+                      id: 'imageTown',
+                      name: 'imageTown',
+                      value: data.imageTown or 'Birmingham'
+                    }) }}
 
-                {{ dateInput({
-                  id: 'imageDateOfBirth',
-                  namePrefix: 'imageDateOfBirth',
-                  fieldset: {
-                    legend: {
-                      html: 'Date of birth ' + 87 | getConfidenceTag
-                    }
-                  },
-                  items: [
-                    {
-                      name: 'day',
-                      classes: 'nhsuk-input--width-2',
-                      value: data.imageDateOfBirth.day or '2'
-                    },
-                    {
-                      name: 'month',
-                      classes: 'nhsuk-input--width-2',
-                      value: data.imageDateOfBirth.month or '7'
-                    },
-                    {
-                      name: 'year',
-                      classes: 'nhsuk-input--width-4',
-                      value: data.imageDateOfBirth.year or '1995'
-                    }
-                  ]
-                }) }}
+                    {{ input({
+                      label: {
+                        html: 'County ' + 0 | getConfidenceTag + ' (optional)'
+                      },
+                      classes: 'nhsuk-input--width-10',
+                      id: 'imageCounty',
+                      name: 'imageCounty',
+                      value: data.imageCounty
+                    }) }}
 
+                    {{ input({
+                      label: {
+                        html: 'Postcode ' + 89 | getConfidenceTag
+                      },
+                      classes: 'nhsuk-input--width-10',
+                      id: 'imagePostcode',
+                      name: 'imagePostcode',
+                      value: data.imagePostcode or 'B14 9QX'
+                    }) }}
 
-
-
-                {{ input({
-                    label: {
-                      html: 'NHS number ' + 67 | getConfidenceTag
-                    },
-                    id: 'imageNHSNumber',
-                    name: 'imageNHSNumber',
-                    classes: 'nhsuk-input--width-10',
-                    value: data.imageNHSNumber or '1252 567 987'
-                  }) }}
-
-               
                   {% endcall %}
+
+
+               {% call fieldset({
+                    legend: {
+                        text: 'Address details',
+                        classes: 'nhsuk-u-visually-hidden'
+                    }
+                }) %}
+
+                   
+
+
+                {% endcall %}
+
+
+                    
 
 
                     <hr class="nhsuk-section-break nhsuk-section-break--m" />
@@ -145,6 +153,9 @@
                     }) }}
 
                   </div>
+
+
+                  <p class="nhsuk-body"><a href="process-application--postcode">Search for address with a postcode</a></p>
 
                 </form>
 

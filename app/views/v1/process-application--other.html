@@ -48,86 +48,66 @@
                <div class="nhsuk-card nhsuk-card--grey">
         <div class="nhsuk-card__content">
 
-              <h2 class="nhsuk-heading-m">Confirm patient details</h2>
+              <h2 class="nhsuk-heading-m">Confirm contact details and due date</h2>
 
-              <form action="process-application" method="post" novalidate>
+              <form action="process-application--other" method="post" novalidate>
 
 
-                <!-- FULL NAME -->
-                {% call fieldset({
-                  legend: {
-                    text: 'Personal details',
-                    classes: 'nhsuk-u-visually-hidden'
-                  }
-                }) %}
-
-                {{ input({
-                    label: {
-                      html: 'Last name ' + 13 | getConfidenceTag
-                    },
-                    id: 'imageLastName',
-                    name: 'imageLastName',
-                    classes: 'nhsuk-input--width-20',
-                    value: data.imageLastName or 'Jaaahnson'
-                  }) }}
 
                   {{ input({
-                    label: {
-                      html: 'First name ' + 42 | getConfidenceTag
-                    },
-                    id: 'imageFirstName',
-                    name: 'imageFirstName',
-                    value: data.imageFirstName or 'Sorah',
-                    classes: 'nhsuk-input--width-20'
+                      label: {
+                        html: 'Phone number ' + 87 | getConfidenceTag + ' (optional)'
+                      },
+                      attributes: { type: 'tel', autocomplete: 'off' },
+                      classes: 'nhsuk-input--width-10',
+                      id: 'imagePhoneNumber',
+                      name: 'imagePhoneNumber',
+                      value: data.imagePhoneNumber or '07911 123456'
                   }) }}
 
-                  
 
-             
+                   {{ input({
+                      label: {
+                        html: 'Email address ' + 0 | getConfidenceTag + ' (optional)'
+                      },
+                      attributes: { type: 'email', autocomplete: 'off' },
+                      classes: 'nhsuk-input--width-20',
+                      id: 'imageEmailAddress',
+                      name: 'imageEmailAddress',
+                      value: data.imageEmailAddress
+                  }) }}
+               
+
 
                 {{ dateInput({
-                  id: 'imageDateOfBirth',
-                  namePrefix: 'imageDateOfBirth',
+                  id: 'imageBabyDateOfBirth',
+                  namePrefix: 'imageBabyDateOfBirth',
                   fieldset: {
                     legend: {
-                      html: 'Date of birth ' + 87 | getConfidenceTag
+                      html: "Baby's date of birth " + 92 | getConfidenceTag
                     }
                   },
                   items: [
                     {
                       name: 'day',
                       classes: 'nhsuk-input--width-2',
-                      value: data.imageDateOfBirth.day or '2'
+                      value: data.imageBabyDateOfBirth.day or '10'
                     },
                     {
                       name: 'month',
                       classes: 'nhsuk-input--width-2',
-                      value: data.imageDateOfBirth.month or '7'
+                      value: data.imageBabyDateOfBirth.month or '8'
                     },
                     {
                       name: 'year',
                       classes: 'nhsuk-input--width-4',
-                      value: data.imageDateOfBirth.year or '1995'
+                      value: data.imageBabyDateOfBirth.year or '2026'
                     }
                   ]
                 }) }}
 
 
-
-
-                {{ input({
-                    label: {
-                      html: 'NHS number ' + 67 | getConfidenceTag
-                    },
-                    id: 'imageNHSNumber',
-                    name: 'imageNHSNumber',
-                    classes: 'nhsuk-input--width-10',
-                    value: data.imageNHSNumber or '1252 567 987'
-                  }) }}
-
-               
-                  {% endcall %}
-
+                    
 
                     <hr class="nhsuk-section-break nhsuk-section-break--m" />
 
@@ -145,6 +125,8 @@
                     }) }}
 
                   </div>
+
+                 
 
                 </form>
 

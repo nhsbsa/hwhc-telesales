@@ -28,7 +28,7 @@
           <div class="nhsuk-grid-row">
             <div class="nhsuk-grid-column-one-half">
 
-              <h2 class="nhsuk-heading-m nhsuk-u-visually-hidden">Scanned form</h2>
+              <h2 class="nhsuk-heading-m nhsuk-u-visually-hidden">Scanned application</h2>
 
               <details class="expandable-image">
                 <div class="expandable-image__inner">
@@ -46,14 +46,14 @@
                <div class="nhsuk-card nhsuk-card--grey">
         <div class="nhsuk-card__content">
 
-              <h2 class="nhsuk-heading-l">Confirm patient details</h2>
+              <h2 class="nhsuk-heading-m">Review patient details</h2>
 
-              <h3>Personal details</h3>
+              <h3 class="nhsuk-heading-s">Personal details</h3>
 
               {% set firstName = data.imageFirstName or 'Sarah' %}
               {% set lastName = data.imageLastName or 'Johnson' %}
 
-              {% set houseNumber = data.imageHouseNumber or '12' %}
+              {% set houseNumber = data.imageBuildingNumberOrName or '12' %}
               {% set addressLine1 = data.imageAddressLine1 or 'Crown Passage' %}
               {% set addressLine2 = data.imageAddressLine2 or '' %}
               {% set town = data.imageTown or 'Birmingham' %}
@@ -94,14 +94,14 @@
                       value: { html: houseNumber | processAddress( addressLine1, addressLine2, town, county, postcode ) },
                       actions: {
                          items: [
-                          { href: 'process-application#imageHouseNumber', text: 'Change', visuallyHiddenText: 'Address' }
+                          { href: 'process-application--postcode', text: 'Change', visuallyHiddenText: 'address' }
                         ]
                       }
                     }
                   ]
                 }) }}
 
-                <h3>Contact details</h3>
+                <h3 class="nhsuk-heading-s">Contact details</h3>
 
                 {{ summaryList({
                   rows: [
@@ -110,7 +110,7 @@
                       value: { text: data.imagePhoneNumber or '07911 123456' },
                       actions: {
                         items: [
-                          { href: 'process-application#imagePhoneNumber', text: 'Change', visuallyHiddenText: 'phone number' }
+                          { href: 'process-application--other#imagePhoneNumber', text: 'Change', visuallyHiddenText: 'phone number' }
                         ]
                       }
                     },
@@ -119,7 +119,7 @@
                       value: { text: data.imageEmailAddress },
                       actions: {
                          items: [
-                          { href: 'process-application#imageEmailAddress', text: 'Change', visuallyHiddenText: 'email address' }
+                          { href: 'process-application--other#imageEmailAddress', text: 'Change', visuallyHiddenText: 'email address' }
                         ]
                       }
                     }
@@ -127,7 +127,7 @@
                 }) }}
 
 
-                <h3>Baby details</h3>
+                <h3 class="nhsuk-heading-s">Baby details</h3>
 
                 {{ summaryList({
                   rows: [
@@ -136,7 +136,7 @@
                       value: { text: '10 August 2026' },
                       actions: {
                         items: [
-                          { href: 'process-application#imageBabyDateOfBirth', text: 'Change', visuallyHiddenText: "baby's date of birth" }
+                          { href: 'process-application--other#imageBabyDateOfBirth', text: 'Change', visuallyHiddenText: "baby's date of birth" }
                         ]
                       }
                     }
@@ -148,8 +148,8 @@
                 <div class="nhsuk-button-group">
 
                   {{ button({
-                    text : 'Complete processing',
-                    href: 'confirmation-processing-complete'
+                    text : 'Approve application',
+                    href: 'confirmation?certificateStatus=applicationApproved'
                   }) }}
 
                   {{ button({

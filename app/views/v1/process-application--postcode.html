@@ -48,85 +48,52 @@
                <div class="nhsuk-card nhsuk-card--grey">
         <div class="nhsuk-card__content">
 
-              <h2 class="nhsuk-heading-m">Confirm patient details</h2>
+              <h2 class="nhsuk-heading-m">Confirm patient address</h2>
 
-              <form action="process-application" method="post" novalidate>
+              <form action="process-application--postcode" method="post" novalidate>
+              <!--
+              
+              Can't use until Shai-halud is sorted...
+
+              <form action="postcode-handler" method="get" novalidate>-->
 
 
-                <!-- FULL NAME -->
-                {% call fieldset({
-                  legend: {
-                    text: 'Personal details',
-                    classes: 'nhsuk-u-visually-hidden'
-                  }
+               {% call fieldset({
+                    legend: {
+                        text: 'Address details',
+                        classes: 'nhsuk-u-visually-hidden'
+                    }
                 }) %}
 
-                {{ input({
-                    label: {
-                      html: 'Last name ' + 13 | getConfidenceTag
-                    },
-                    id: 'imageLastName',
-                    name: 'imageLastName',
-                    classes: 'nhsuk-input--width-20',
-                    value: data.imageLastName or 'Jaaahnson'
-                  }) }}
+                    <!-- POSTCODE -->
+                    {{ input({
+                        label: {
+                            html: 'Postcode ' + 89 | getConfidenceTag
+                        },
+                        classes: 'nhsuk-input--width-10',
+                        attributes: { 'autocomplete' : 'off' },
+                        id: 'imagePostcode',
+                        name: 'imagePostcode',
+                        value: data.imagePostcode or 'B14 9QX'
+                    }) }}
 
-                  {{ input({
-                    label: {
-                      html: 'First name ' + 42 | getConfidenceTag
-                    },
-                    id: 'imageFirstName',
-                    name: 'imageFirstName',
-                    value: data.imageFirstName or 'Sorah',
-                    classes: 'nhsuk-input--width-20'
-                  }) }}
-
-                  
-
-             
-
-                {{ dateInput({
-                  id: 'imageDateOfBirth',
-                  namePrefix: 'imageDateOfBirth',
-                  fieldset: {
-                    legend: {
-                      html: 'Date of birth ' + 87 | getConfidenceTag
-                    }
-                  },
-                  items: [
-                    {
-                      name: 'day',
-                      classes: 'nhsuk-input--width-2',
-                      value: data.imageDateOfBirth.day or '2'
-                    },
-                    {
-                      name: 'month',
-                      classes: 'nhsuk-input--width-2',
-                      value: data.imageDateOfBirth.month or '7'
-                    },
-                    {
-                      name: 'year',
-                      classes: 'nhsuk-input--width-4',
-                      value: data.imageDateOfBirth.year or '1995'
-                    }
-                  ]
-                }) }}
+                    <!-- BUILDING NUMBER OR NAME -->
+                    {{ input({
+                        label: {
+                            html: 'House number or name ' + 67 | getConfidenceTag
+                        },
+                        classes: 'nhsuk-input nhsuk-input--width-20',
+                        hint: {
+                            text: 'For example, 15 or Prospect Cottage'
+                        },
+                        id: 'imageHouseNumberOrName',
+                        name: 'imageHouseNumberOrName',
+                        value: data.imageBuildingNumberOrName or '12'
+                    }) }}
 
 
+                {% endcall %}
 
-
-                {{ input({
-                    label: {
-                      html: 'NHS number ' + 67 | getConfidenceTag
-                    },
-                    id: 'imageNHSNumber',
-                    name: 'imageNHSNumber',
-                    classes: 'nhsuk-input--width-10',
-                    value: data.imageNHSNumber or '1252 567 987'
-                  }) }}
-
-               
-                  {% endcall %}
 
 
                     <hr class="nhsuk-section-break nhsuk-section-break--m" />
@@ -145,6 +112,9 @@
                     }) }}
 
                   </div>
+
+
+                  <p class="nhsuk-body"><a href="process-application--manual-entry">Enter address manually</a></p>
 
                 </form>
 

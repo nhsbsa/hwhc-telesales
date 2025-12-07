@@ -4,8 +4,8 @@
 {% set bannerRole = 'backOffice' %}
 
 {% block beforeContent %}
- {{ backLink({
-    href: 'process-application',
+  {{ backLink({
+    href: 'javascript:history.go(-1)',
     text: 'Back'
   }) }}
 {% endblock %}
@@ -49,46 +49,105 @@
 
               <h2 class="nhsuk-heading-m">Send a letter</h2>
 
+              {% set gpHTML %}
 
-              {% set unableToProcessHTML %}
+                  {{ radios({
+                  idPrefix: 'letterType',
+                  name: 'letterType',
+                  fieldset: {
+                    legend: {
+                      text: 'Which letter would you like to send to the GP?',
+                      classes: 'nhsuk-u-visually-hidden'
+                    }
+                  },
+                  items: [
+                    {
+                      value: 'PE07',
+                      html: 'PE07',
+                      hint: {
+                        text: 'Information is missing from the application'
+                      }
+                    }
+                    ]
+                }) }}
+               
 
+              {% endset %}
+
+
+              {% set patientHTML %}
+
+                  {{ radios({
+                  idPrefix: 'letterType',
+                  name: 'letterType',
+                  fieldset: {
+                    legend: {
+                      text: 'Which letter would you like to send to the patient?',
+                      classes: 'nhsuk-u-visually-hidden'
+                    }
+                  },
+                  items: [
+                    {
+                      value: 'MAT06',
+                      html: 'MAT06',
+                      hint: {
+                        text: 'Child has already reached first birthday'
+                      }
+                    },
+                    {
+                      value: 'PE04',
+                      html: 'PE04',
+                      hint: {
+                        text: 'Patient signature is missing'
+                      }
+                    },
+                     {
+                      value: 'PE05',
+                      html: 'PE05',
+                      hint: {
+                        text: "Letter hasn't been stamped by GP"
+                      }
+                    },
+                    {
+                      value: 'PE12',
+                      html: 'PE12',
+                      hint: {
+                        text: 'Applicant is under 16, or over 60'
+                      }
+                    }
+                    ]
+                }) }}
                
 
               {% endset %}
 
               
-               <form action="cannot-process-application" method="post" novalidate>
+               <form action="send-a-letter" method="post" novalidate>
 
                 {{ radios({
                   idPrefix: 'sendLetterTo',
                   name: 'sendLetterTo',
                   fieldset: {
                     legend: {
-                      text: 'What would you like to do next?'
+                      text: 'Who would you like to send a letter to?'
                     }
                   },
                   items: [
                     {
-                      value: 'sendALetter',
-                      text: 'Send a letter'
-                    },
-                    {
-                      value: 'paperKeyIn',
-                      text: 'Request a paper key-in'
-                    },
-                    {
-                      value: 'unableToProcess',
-                      text: 'Close the application',
+                      value: 'gp',
+                      text: 'To the GP',
                       conditional: {
-                        html: unableToProcessHTML 
+                        html: gpHTML
                       }
-                    }
-                  ]
+                    },
+                    {
+                      value: 'patient',
+                      text: 'To the patient',
+                      conditional: {
+                        html: patientHTML
+                      }
+                    }]
                 }) }}
-
-
-
-                
 
 
                 {{ button({

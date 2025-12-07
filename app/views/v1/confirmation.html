@@ -1,0 +1,86 @@
+{% extends 'layout-fullscreen-normal-content.html' %}
+
+{% set pageName = 'Processing complete' %}
+{% set bannerRole = 'backOffice' %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        {% if data.confirmationStatus === 'letterSent' %}
+
+          <!-- LETTER SENT -->
+          {{ panel({
+            titleText: 'Letter ' + ( data.letterType or 'PE07' ) + ' sent to printer',
+            html: ''
+          }) }}
+
+        {% elseif data.confirmationStatus === 'requestPaperKeyIn' %}
+
+          <!-- PAPER KEY-IN REQUESTED -->
+          {{ panel({
+            titleText: 'Paper key-in requested',
+            html: 'Your request has been sent to the post room'
+          }) }}
+        
+        {% elseif data.confirmationStatus === 'applicationRejected' %}
+
+          <!-- APPLICATION REJECTED -->
+          {{ panel({
+            titleText: 'Application rejected',
+            html: ''
+          }) }}
+
+        {% else %}
+
+          <!-- APPLICATION PROCESSED SUCCESSFULLY -->
+          {% set panelHTML %}
+
+          {% set firstName = data.imageFirstName or 'Sarah' %}
+          {% set lastName = data.imageLastName or 'Johnson' %}
+
+              <dl>
+                  <div>
+                      <dd class="nhsuk-body nhsuk-u-visually-hidden">Name</dd>
+                      <dt class="nhsuk-heading-l">{{ firstName | processFullName( lastName ) }}</dt>
+                  </div>
+                  <div>
+                      <dd class="nhsuk-body nhsuk-u-margin-0">Certificate number</dd>
+                      <dt class="nhsuk-heading-l">8436 810 379</dt>
+                  </div>
+              </dl>
+
+          {% endset %}
+
+          {{ panel({
+              titleText: pageName,
+              html: panelHTML
+          }) }}
+
+        {% endif %}
+
+
+         <div class="nhsuk-button-group">
+
+          {{ button({
+            text : 'Process next application',
+            href: 'process-application'
+          }) }}
+
+          {{ button({
+            text : 'Finish processing',
+            href: 'dashboard',
+            classes: 'nhsuk-button--secondary'
+          }) }}
+
+        </div>
+
+
+
+
+    </div>
+  </div>
+
+
+{% endblock %}

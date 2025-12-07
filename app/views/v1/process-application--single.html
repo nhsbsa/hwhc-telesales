@@ -1,0 +1,385 @@
+{% extends 'layout-fullscreen.html' %}
+
+{% set pageName = 'Application 2025 11 18 18 12 16N3000049' %}
+{% set bannerRole = 'backOffice' %}
+
+{% block beforeContent %}
+  {{ backLink({
+    href: 'javascript:history.go(-1)',
+    text: 'Back'
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1 class="nhsuk-heading-m">{{ pageName }}
+        {{ 'matex' | getCertificateTypeTextOrTag( true ) | safe }}
+        {{ 'processing' | getStatusTextOrTag( true ) | safe }}</h1>
+
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+     
+
+          <div class="nhsuk-grid-row">
+            <div class="nhsuk-grid-column-one-half">
+
+              <h2 class="nhsuk-heading-m nhsuk-u-visually-hidden">Scanned application</h2>
+
+              <details class="expandable-image">
+                <div class="expandable-image__inner">
+                  <img class="expandable-image__image" width="2323" height="1670" src="/images/FW8-MATEX-scan.png" alt=""/>
+                </div>
+                <summary class="expandable-image__button nhsuk-button">
+                  <span class="closed">Expand image</span>
+                  <span class="open">Shrink image</span></summary>
+              </details>
+
+            </div>
+
+            <div class="nhsuk-grid-column-one-half">
+
+               <div class="nhsuk-card nhsuk-card--grey">
+        <div class="nhsuk-card__content">
+
+              <h2 class="nhsuk-heading-m">Details to correct</h2>
+
+              <form action="process-application--single" method="post" novalidate>
+
+
+                {% call details({
+                  summaryText: 'Personal details',
+                  classes: 'nhsuk-expander',
+                  id: 'personalDetailsExpander',
+                  attributes: { open: 'open' }
+                }) %}
+
+                <!-- FULL NAME -->
+                {% call fieldset({
+                  legend: {
+                    text: 'Name',
+                    classes: 'nhsuk-u-visually-hidden'
+                  }
+                }) %}
+
+                {{ input({
+                    label: {
+                      html: 'Last name ' + 13 | getConfidenceTag
+                    },
+                    id: 'imageLastName',
+                    name: 'imageLastName',
+                    classes: 'nhsuk-input--width-20',
+                    value: data.imageLastName or 'Jaaahnson'
+                  }) }}
+
+                  {{ input({
+                    label: {
+                      html: 'First name ' + 42 | getConfidenceTag
+                    },
+                    id: 'imageFirstName',
+                    name: 'imageFirstName',
+                    value: data.imageFirstName or 'Sorah',
+                    classes: 'nhsuk-input--width-20'
+                  }) }}
+
+                  
+
+                {% endcall %}
+
+                {{ dateInput({
+                  id: 'imageDateOfBirth',
+                  namePrefix: 'imageDateOfBirth',
+                  fieldset: {
+                    legend: {
+                      html: 'Date of birth ' + 87 | getConfidenceTag
+                    }
+                  },
+                  items: [
+                    {
+                      name: 'day',
+                      classes: 'nhsuk-input--width-2',
+                      value: data.imageDateOfBirth.day or '2'
+                    },
+                    {
+                      name: 'month',
+                      classes: 'nhsuk-input--width-2',
+                      value: data.imageDateOfBirth.month or '7'
+                    },
+                    {
+                      name: 'year',
+                      classes: 'nhsuk-input--width-4',
+                      value: data.imageDateOfBirth.year or '1995'
+                    }
+                  ]
+                }) }}
+
+
+                {{ input({
+                    label: {
+                      html: 'NHS number ' + 67 | getConfidenceTag
+                    },
+                    id: 'imageNHSNumber',
+                    name: 'imageNHSNumber',
+                    classes: 'nhsuk-input--width-10',
+                    value: data.imageNHSNumber or '1252 567 987'
+                  }) }}
+
+
+              {% endcall %}
+
+                {% if( ddd ) %}
+                  {% set addressExpanderOpen = { open: 'open' } %}
+                {% endif %}
+
+                {% call details({
+                  summaryText: 'Address',
+                  classes: 'nhsuk-expander',
+                  id: 'addressExpander',
+                  attributes: addressExpanderOpen
+                }) %}
+
+                <!-- ADDRESS -->
+                {% call fieldset({
+                  legend: {
+                    html: 'Address',
+                    classes: 'nhsuk-u-visually-hidden'
+                  }
+                }) %}
+
+                    {{ input({
+                      label: {
+                        html: 'House number or name ' + 67 | getConfidenceTag
+                      },
+                      id: 'imageBuildingNumberOrName',
+                      name: 'imageBuildingNumberOrName',
+                      classes: 'nhsuk-input--width-10',
+                      value: data.imageBuildingNumberOrName or '12'
+                    }) }}
+
+                    {{ input({
+                      label: {
+                        html: 'Address line 1 ' + 87 | getConfidenceTag
+                      },
+                      id: 'imageAddressLine1',
+                      name: 'imageAddressLine1',
+                      value: data.imageAddressLine1 or 'Crown Passage'
+                    }) }}
+
+                    {{ input({
+                      label: {
+                        html: 'Address line 2 ' + 0 | getConfidenceTag + ' (optional)'
+                      },
+                      id: 'imageAddressLine2',
+                      name: 'imageAddressLine2',
+                      value: data.imageAddress2
+                    }) }}
+
+                    {{ input({
+                      label: {
+                        html: 'Town or city ' + 77 | getConfidenceTag
+                      },
+                      classes: 'nhsuk-input--width-20',
+                      id: 'imageTown',
+                      name: 'imageTown',
+                      value: data.imageTown or 'Birmingham'
+                    }) }}
+
+                    {{ input({
+                      label: {
+                        html: 'County ' + 0 | getConfidenceTag + ' (optional)'
+                      },
+                      classes: 'nhsuk-input--width-10',
+                      id: 'imageCounty',
+                      name: 'imageCounty',
+                      value: data.imageCounty
+                    }) }}
+
+                    {{ input({
+                      label: {
+                        html: 'Postcode ' + 89 | getConfidenceTag
+                      },
+                      classes: 'nhsuk-input--width-10',
+                      id: 'imagePostcode',
+                      name: 'imagePostcode',
+                      value: data.imagePostcode or 'B14 9QX'
+                    }) }}
+
+                  {% endcall %}
+
+                {% endcall %}
+
+
+              <!-- CONTACT DETAILS -->
+              {% call details({
+                  summaryText: 'Contact details',
+                  id: 'contactDetailsExpander',
+                  classes: 'nhsuk-expander'
+                }) %}
+
+                {{ input({
+                      label: {
+                        html: 'Phone number ' + 87 | getConfidenceTag + ' (optional)'
+                      },
+                      attributes: { type: 'tel', autocomplete: 'off' },
+                      classes: 'nhsuk-input--width-10',
+                      id: 'imagePhoneNumber',
+                      name: 'imagePhoneNumber',
+                      value: data.imagePhoneNumber or '07911 123456'
+                  }) }}
+
+
+                   {{ input({
+                      label: {
+                        html: 'Email address ' + 0 | getConfidenceTag + ' (optional)'
+                      },
+                      attributes: { type: 'email', autocomplete: 'off' },
+                      classes: 'nhsuk-input--width-20',
+                      id: 'imageEmailAddress',
+                      name: 'imageEmailAddress',
+                      value: data.imageEmailAddress
+                  }) }}
+
+
+                {% endcall %}
+
+
+
+
+
+                {% call details({
+                  summaryText: 'Baby details',
+                  classes: 'nhsuk-expander',
+                  id: 'babyDetailsExpander'
+                }) %}
+
+                {{ dateInput({
+                  id: 'imageBabyDateOfBirth',
+                  namePrefix: 'imageBabyDateOfBirth',
+                  fieldset: {
+                    legend: {
+                      html: "Baby's date of birth " + 92 | getConfidenceTag
+                    }
+                  },
+                  items: [
+                    {
+                      name: 'day',
+                      classes: 'nhsuk-input--width-2',
+                      value: data.imageBabyDateOfBirth.day or '10'
+                    },
+                    {
+                      name: 'month',
+                      classes: 'nhsuk-input--width-2',
+                      value: data.imageBabyDateOfBirth.month or '8'
+                    },
+                    {
+                      name: 'year',
+                      classes: 'nhsuk-input--width-4',
+                      value: data.imageBabyDateOfBirth.year or '2026'
+                    }
+                  ]
+                }) }}
+
+                {% endcall %}
+
+
+
+
+                <div class="nhsuk-button-group">
+
+                  {{ button({
+                    text : 'Continue'
+                  }) }}
+
+                  {{ button({
+                    text : 'Cannot process application',
+                    href: 'cannot-process-application',
+                    classes: 'nhsuk-button--secondary'
+                  }) }}
+
+                </div>
+
+              </form>
+
+                <style>
+
+
+
+                  img[width] {
+                    width: calc( attr(width)/2 );
+                  }
+
+
+                  /* JUST AFTER LABEL */
+
+                  .confidence-level {
+                    vertical-align: text-bottom;
+                    display: inline;
+                    white-space: nowrap;
+                  }
+
+                  .confidence-level .confidence-score {
+                    border-left: 0;
+                  }
+
+                  
+
+
+
+
+                  /* UNDER LABEL VERSION 
+
+                  .confidence-level {
+                    vertical-align: text-bottom;
+                    display: block;
+                    white-space: nowrap;
+                    margin-bottom: 0.75rem;
+                  }
+
+                  .confidence-level .confidence-score {
+                    border-left: 0;
+                  }
+
+                  */
+                  
+
+
+                  /* ALIGN TO RIGHT VERSION
+
+                  .nhsuk-details__text .nhsuk-form-group {
+                    position: relative;
+                  }
+
+                  .confidence-level {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    margin: 0;
+                  }
+                  */
+                  
+            
+
+                </style>
+
+
+              </div>
+              </div>
+
+
+
+            </div>
+
+          </div>
+
+     
+
+    </div>
+  </div>
+
+{% endblock %}
