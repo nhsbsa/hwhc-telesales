@@ -68,23 +68,7 @@
                 text: "Fulfilment" 
               },
               value: {
-                classes: "fulfilment-value",
-                html: radios({
-                  idPrefix: "example-inline",
-                  name: "exampleInline",
-                  classes: "nhsuk-radios--inline summary-list-radios",
-                  items: [
-                    { 
-                      value: "email", 
-                      text: "Email",
-                      checked: true
-                    },
-                    { 
-                      value: "post", 
-                      text: "Post" 
-                    }
-                  ]
-                })
+                html: "Email"
               }
             },
             {
@@ -238,11 +222,6 @@
         word-break: break-word;
       }
 
-
-      .summary-list-radios {
-          display: flex;
-          white-space: nowrap;
-        }
 
       /* --------------------------------------------------- */
       /* STACKING BREAKPOINT 1 — small screens (≤425px)      */

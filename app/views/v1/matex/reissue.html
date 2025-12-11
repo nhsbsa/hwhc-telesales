@@ -68,23 +68,7 @@
                 text: "Fulfilment" 
               },
               value: {
-                classes: "fulfilment-value",
-                html: radios({
-                  idPrefix: "example-inline",
-                  name: "exampleInline",
-                  classes: "nhsuk-radios--inline summary-list-radios",
-                  items: [
-                    { 
-                      value: "email", 
-                      text: "Email",
-                      checked: true
-                    },
-                    { 
-                      value: "post", 
-                      text: "Post" 
-                    }
-                  ]
-                })
+                html: "Email"
               }
             },
             {
@@ -159,26 +143,10 @@
             },
             {
               key: {
-                text: "Address line 1"
+                text: "Address"
               },
               value: {
-                html: ""
-              }
-            },
-            {
-              key: {
-                text: "Address line 2"
-              },
-              value: {
-                html: ""
-              }
-            },
-            {
-              key: {
-                text: "Postcode"
-              },
-              value: {
-                html: "TR11 0TS"
+                html: "22 River Rd<br>Stella<br>Goldcrest Way<br>TR11 0TS"
               }
             },
             {
@@ -276,11 +244,6 @@
         overflow-wrap: anywhere;
         word-break: break-word;
       }
-
-      .summary-list-radios {
-          display: flex;
-          white-space: nowrap;
-        }
 
 
       /* --------------------------------------------------- */

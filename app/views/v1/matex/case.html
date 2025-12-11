@@ -106,6 +106,12 @@
             }
           ]
         })
+        +
+        button({
+          text: "Edit certificate details",
+          classes: "nhsuk-button--secondary nhsuk-u-margin-top-5",
+          href: "edit-certificate"
+        })
 
       }) }}
     
@@ -151,7 +157,7 @@
                 text: "Telephone number"
               },
               value: {
-                html: ""
+                html: "07700 123 456"
               }
             },
             {
@@ -224,114 +230,12 @@
         {% from "tables/macro.njk" import table %}
 
 
-        {% set AllContent %}
-        <div class="scroll-container">
-        {{ nhsappTimeline({
-          items: [
-          {
-            headingText: 'Address updated',
-            html: '
-              <p class="nhsuk-u-margin-bottom-1"><strong>By:</strong> Maria Li (Customer contact advisor)</p>
-              <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-top-1">
-                <li>Address: "14 Bridge St Stella NE15 8NY" TO "22 River Rd Stella Goldcrest Way TR11 0TS"</li>
-              </ul>
-              <p class="nhsuk-body-s nhsuk-u-margin-top-1">27 November 2025 2:30pm</p>
-            ',
-            active: true
-          },
-          {
-            headingText: 'Note added',
-            html: '
-              <p class="nhsuk-u-margin-bottom-1"><strong>By:</strong> Maria Li (Customer contact advisor)</p>
-              <p class="nhsuk-u-margin-bottom-1">"Applicant phoned to confirm address change."</p>
-              <p class="nhsuk-body-s nhsuk-u-margin-top-1">27 November 2025 2:25pm</p>
-            '
-          },
-            {
-              headingText: 'Application approved',
-              html: '
-                <p class="nhsuk-u-margin-bottom-1"><strong>By:</strong> John Smith (Applications processor)</p>
-                <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-top-1">
-                  <li>Status: Reviewing TO Accepted</li>
-                </ul>
-                <p class="nhsuk-body-s nhsuk-u-margin-top-1">23 November 2025 12:32pm</p>
-              '
-            },
-            {
-              headingText: 'Application reviewed',
-              html: '
-                <p class="nhsuk-u-margin-bottom-1"><strong>By:</strong> John Smith (Applications processor)</p>
-                <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-top-1">
-                  <li>Status: Pending TO Reviewing</li>
-                </ul>
-                <p class="nhsuk-body-s nhsuk-u-margin-top-1">23 November 2025 12:32pm</p>
-              '
-            },
-            {
-              headingText: 'Application scanned',
-              html: '
-                <p class="nhsuk-u-margin-bottom-1"><strong>By:</strong> System</p>
-                <p class="nhsuk-body-s nhsuk-u-margin-top-1">23 November 2025 08:30am</p>
-                '
-            }
-          ]
-        }) }}
-      </div>
-
-          {% endset -%} {% set SystemContent %}
-          <div class="scroll-container">
-          {{ nhsappTimeline({
-            items: [
-            {
-              headingText: 'Address line 1 updated',
-              html: '
-                <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-top-1">
-                  <li>Address line 1: "14 Bridge St" TO "22 River Rd"</li>
-                </ul>
-                <p class="nhsuk-body-s nhsuk-u-margin-top-1">27 November 2025 4:30pm</p>
-              ',
-              active: true
-            },
-              {
-                headingText: 'Application approved',
-                html: '
-                  <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-top-1">
-                    <li>Status:<span class="nhsuk-u-visually-hidden"> changed from</span> Reviewing TO Active</li>
-                  </ul>
-                  <p class="nhsuk-body-s nhsuk-u-margin-top-1">23 November 2025 12:32pm</p>
-                '
-              },
-              {
-                headingText: 'Application scanned',
-                html: '
-                <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-top-1">
-                  <li>Status:<span class="nhsuk-u-visually-hidden"> changed from</span> Processing TO Reviewing</li>
-                </ul>
-                  <p class="nhsuk-body-s nhsuk-u-margin-top-1">23 November 2025 08:30am</p>
-                  '
-              },
-              {
-                headingText: 'Address line 1 updated',
-                html: '
-                  <p class="nhsuk-u-margin-bottom-1"><strong>By:</strong> Maria Li (Customer contact advisor)</p>
-                  <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-top-1">
-                    <li>Address line 1: "14 Bridge St" TO "22 River Rd"</li>
-                  </ul>
-                  <p class="nhsuk-body-s nhsuk-u-margin-top-1">22 November 2025 4:30pm</p>
-                '
-              }
-            ]
-          }) }}
-        </div>
-
-        {% endset -%} 
-
         {% set NotesContent %}
         <div class="scroll-container">
         {{ nhsappTimeline({
           items: [
             {
-              headingText: '22 November 2025 2:05pm',
+              headingText: '22 December 2025 2:30pm',
               html: '
                 <p class="nhsuk-u-margin-bottom-1">Maria Li (Customer contact advisor)</p>
                 <p class="nhsuk-u-margin-bottom-1">"Applicant phoned to confirm address change."</p>
@@ -342,6 +246,111 @@
         }) }}
         </div>
         {% endset -%} 
+
+        {% set EventsContent %}
+          <div class="scroll-container">
+          {{ nhsappTimeline({
+            items: [
+            {
+              headingText: 'Address line 1 updated',
+              html: '
+                <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-top-1">
+                  <li>Address line 1: "14 Bridge St" TO "22 River Rd"</li>
+                </ul>
+                <p class="nhsuk-body-s nhsuk-u-margin-top-1">22 December 2025 2:30pm</p>
+              ',
+              active: true
+            },
+            {
+              headingText: 'Application approved',
+              html: '
+                <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-top-1">
+                  <li>Status: Reviewing TO Accepted</li>
+                </ul>
+                <p class="nhsuk-body-s nhsuk-u-margin-top-1">23 November 2025 04:30pm</p>
+              '
+            },
+            {
+              headingText: 'Application processed',
+              html: '
+                <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-top-1">
+                  <li>Status: Processing TO Reviewing</li>
+                </ul>
+                <p class="nhsuk-body-s nhsuk-u-margin-top-1">23 November 2025 12:32pm</p>
+              '
+            },
+            {
+              headingText: 'Application scanned',
+              html: '
+                <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-top-1">
+                  <li>Status: Pending TO Processing</li>
+                </ul>
+                <p class="nhsuk-body-s nhsuk-u-margin-top-1">21 November 2025 08:30am</p>
+                '
+            }
+            ]
+          }) }}
+        </div>
+
+        {% endset -%} 
+
+        {% set FullLogContent %}
+        <div class="scroll-container">
+        {{ nhsappTimeline({
+          items: [
+          {
+            headingText: 'Note added',
+            html: '
+              <p class="nhsuk-u-margin-bottom-1">Maria Li (Customer contact advisor)</p>
+              <p class="nhsuk-u-margin-bottom-1">"Applicant phoned to confirm address change."</p>
+              <p class="nhsuk-body-s nhsuk-u-margin-top-1">22 December 2025 2:30pm</p>
+            ',
+            active: true
+          },
+          {
+            headingText: 'Address line 1 updated',
+            html: '
+              <p class="nhsuk-u-margin-bottom-1">Maria Li (Customer contact advisor)</p>
+              <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-top-1">
+                <li>Address line 1: "14 Bridge St" TO "22 River Rd"</li>
+              </ul>
+              <p class="nhsuk-body-s nhsuk-u-margin-top-1">22 December 2025 2:30pm</p>
+            '
+          },
+            {
+              headingText: 'Application approved',
+              html: '
+                <p class="nhsuk-u-margin-bottom-1">John Smith (Applications processor)</p>
+                <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-top-1">
+                  <li>Status: Reviewing TO Accepted</li>
+                </ul>
+                <p class="nhsuk-body-s nhsuk-u-margin-top-1">23 November 2025 04:30pm</p>
+              '
+            },
+            {
+              headingText: 'Application processed',
+              html: '
+                <p class="nhsuk-u-margin-bottom-1">John Smith (Applications processor)</p>
+                <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-top-1">
+                  <li>Status: Processing TO Reviewing</li>
+                </ul>
+                <p class="nhsuk-body-s nhsuk-u-margin-top-1">23 November 2025 12:32pm</p>
+              '
+            },
+            {
+              headingText: 'Application scanned',
+              html: '
+                <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-top-1">
+                  <li>Status: Pending TO Processing</li>
+                </ul>
+                <p class="nhsuk-body-s nhsuk-u-margin-top-1">21 November 2025 08:30am</p>
+                '
+            }
+          ]
+        }) }}
+      </div>
+
+          {% endset -%} 
 
 
         {{ tabs({
@@ -357,14 +366,14 @@
               label: "Events",
               id: "events",
               panel: {
-                html: SystemContent
+                html: EventsContent
               }
             },
             {
               label: "Full log",
               id: "full-log",
               panel: {
-                html: AllContent
+                html: FullLogContent
                 }
               }
           ]
