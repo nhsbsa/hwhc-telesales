@@ -33,7 +33,7 @@
                 text: "Reference"
               },
               value: {
-                text: "123 4567 8901"
+                text: "64 863 492 290"
               }
             },
             {
@@ -60,7 +60,7 @@
                 text: "Channel"
               },
               value: {
-                html: "Digital"
+                html: "Paper"
               }
             },
             {
@@ -68,7 +68,7 @@
                 text: "Fulfilment"
               },
               value: {
-                html: "Email"
+                html: "Post"
               }
             },
             {
@@ -76,7 +76,7 @@
                 text: "Start date"
               },
               value: {
-                html: "25 November 2025"
+                html: "15 October 2025"
               }
             },
             {
@@ -84,7 +84,7 @@
                 text: "Expiry date"
               },
               value: {
-                html: "24 November 2026"
+                html: "14 October 2026"
               }
             },
             {
@@ -92,7 +92,7 @@
                 text: "Application date"
               },
               value: {
-                html: "25 November 2025"
+                html: "15 October 2025"
               }
             },
             {
@@ -127,7 +127,7 @@
                 text: "Last name"
               },
               value: {
-                text: "Smith "
+                text: "Baker "
               }
             },
             {
@@ -135,7 +135,7 @@
                 text: "First name"
               },
               value: {
-                text: "Jane"
+                text: "Poppy"
               }
             },
             {
@@ -143,15 +143,7 @@
                 text: "Address"
               },
               value: {
-                html: ""
-              }
-            },
-            {
-              key: {
-                text: "Postcode"
-              },
-              value: {
-                html: "TR1 10TS"
+                html: "4 Brookhill<br>Stevenage<br>SY2 8RR"
               }
             },
             {
@@ -183,7 +175,7 @@
                 text: "Email address"
               },
               value: {
-                html: "jane.smith@example.com"
+                html: ""
               }
             },
             {
@@ -192,7 +184,7 @@
                 classes: "wrap-key"
               },
               value: {
-                html: "25 November 2025"
+                html: "15 October 2025"
               }
             }
           ]
@@ -201,7 +193,7 @@
         button({
           text: "Edit personal details",
           classes: "nhsuk-button--secondary nhsuk-u-margin-top-5",
-          href: "edit-personal-details"
+          href: "edit-personal-details-paper"
         })
       }) }}
     </div>
@@ -254,10 +246,10 @@
           {{ nhsappTimeline({
             items: [
             {
-              headingText: 'Postcode updated',
+              headingText: 'Address line 1 updated',
               html: '
                 <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-top-1">
-                  <li>Postcode: "NE15 8NY" TO "TR1 10TS"</li>
+                  <li>Address line 1: "14 Bridge St" TO "22 River Rd"</li>
                 </ul>
                 <p class="nhsuk-body-s nhsuk-u-margin-top-1">22 December 2025 2:30pm</p>
               ',
@@ -310,11 +302,11 @@
             active: true
           },
           {
-            headingText: 'Postcode updated',
+            headingText: 'Address line 1 updated',
             html: '
               <p class="nhsuk-u-margin-bottom-1">Maria Li (Customer contact advisor)</p>
               <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-top-1">
-                <li>Postcode: "NE15 8NY" TO "TR1 10TS"</li>
+                <li>Address line 1: "14 Bridge St" TO "22 River Rd"</li>
               </ul>
               <p class="nhsuk-body-s nhsuk-u-margin-top-1">22 December 2025 2:30pm</p>
             '
@@ -389,7 +381,7 @@
 
     {{ button({
       text: 'Reissue certificate',
-      href: "reissue"
+      href: "reissue-paper"
     }) }}
 
     {{ button({

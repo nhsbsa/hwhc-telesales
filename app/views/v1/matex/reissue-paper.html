@@ -33,7 +33,7 @@
                 text: "Reference"
               },
               value: {
-                text: "123 4567 8901"
+                text: "64 863 492 290"
               }
             },
             {
@@ -60,7 +60,7 @@
                 text: "Channel"
               },
               value: {
-                html: "Digital"
+                html: "Paper"
               }
             },
             {
@@ -76,12 +76,12 @@
                   items: [
                     { 
                       value: "email", 
-                      text: "Email",
-                      checked: true
+                      text: "Email"
                     },
                     { 
                       value: "post", 
-                      text: "Post" 
+                      text: "Post" ,
+                      checked: true
                     }
                   ]
                 })
@@ -92,7 +92,7 @@
                 text: "Start date"
               },
               value: {
-                html: "25 November 2025"
+                html: "15 October 2025"
               }
             },
             {
@@ -100,7 +100,7 @@
                 text: "Expiry date"
               },
               value: {
-                html: "24 November 2026"
+                html: "14 October 2026"
               }
             },
             {
@@ -108,7 +108,7 @@
                 text: "Application date"
               },
               value: {
-                html: "25 November 2025"
+                html: "15 October 2025"
               }
             },
             {
@@ -150,7 +150,7 @@
               html: input ({
                 id: "last-name",
                 name: "lastName",
-                value: "Smith"
+                value: "Baker"
               })
             }
           },
@@ -163,7 +163,7 @@
               html: input ({
                 id: "first-name",
                 name: "firstName",
-                value: "Jane"
+                value: "Poppy"
               })
             }
           },
@@ -176,7 +176,7 @@
                     html: input ({
                       id: "address-line-1",
                       name: "addressLineOne",
-                      value: ""
+                      value: "4 Brookhill"
                     })
                   }
                 },
@@ -203,7 +203,7 @@
                       id: "town",
                       name: "town",
                       classes: "nhsuk-u-width-two-thirds",
-                      value: ""
+                      value: "Stevenage"
                     })
                   }
                 },
@@ -217,7 +217,7 @@
                           id: "postcode",
                           name: "postcode",
                           classes: "nhsuk-input--width-5",
-                          value: "TR11 0TS"
+                          value: "SY2 8RR"
                         })
                   }
                 },
@@ -256,7 +256,7 @@
                     html: input ({
                       id: "email",
                       name: "email",
-                      value: "jane.smith@example.com"
+                      value: ""
                     })
                   }
                 },
@@ -268,7 +268,7 @@
                     html: input({
                       suffix: "(ddmmyy)",
                       classes: "nhsuk-input--width-5",
-                      value: "041125"
+                      value: "151025"
                     })
                   }
                 },
@@ -298,7 +298,7 @@
 
     {{ button({
       text: 'Submit',
-      href: "reissue-complete"
+      href: "reissue-complete-paper"
     }) }}
 
     {{ button
