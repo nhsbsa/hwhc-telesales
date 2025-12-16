@@ -2,7 +2,10 @@ module.exports = {
 
     debug: 'false',
 
-    role: 'callCentre', // callCentre, backOffice
+    role: 'callCentre', // callCentre, backOffice,
+    
+    NHSPrescriptionCost: '£9.90',
+    HRTPPCCost: '£19.80',
 
     v1: {
         accessKeys: 'on',
@@ -11,8 +14,7 @@ module.exports = {
         certificateTypes: ['matex','hrtppc'],
         sortBy: 'lastName',
         sortDirection: 'descending', // Test
-        NHSPrescriptionCost: '£9.90',
-        HRTPPCCost: '£19.80'
+        
     }
 
 }
