@@ -86,84 +86,39 @@ module.exports = function (env) {
   //
   // GET APPLICATION CHANNEL FUNCTION
   //
-  function _getApplicationChannelText( service, channel ) {
-
-    let txt = '';
+  const APPLICATION_CHANNEL_MAP = {
+    // HRT PPC
+    online: 'Online',
+    pharmacy: 'Pharmacy',
+    phone: 'Phone',
   
-    switch ( service ) {
+    // MATEX
+    digital: 'Digital',
+    paper: 'Paper'
+  };
   
-      case 'hrtppc':
-        switch ( channel ) {
-  
-          case 'online':
-            txt = 'Online';
-            break;
-  
-          case 'pharmacy':
-            txt = 'Pharmacy';
-            break;
-  
-          case 'phone':
-            txt = 'Phone';
-            break;
-        }
-        break;
-  
-      case 'matex':
-        switch ( channel ) {
-  
-          case 'paper':
-            txt = 'Paper';
-            break;
-  
-          case 'digital':
-            txt = 'Digital';
-            break;
-        }
-        break;
-    }
-  
-    return txt;
+  function _getApplicationChannelText(channel) {
+    return APPLICATION_CHANNEL_MAP[channel];
   }
   
-
-  // 
-  // GET APPLICATION CHANNEL TEXT FILTER
-  //
-  env.addFilter('getApplicationChannelText', function ( service, channel ) {
-    return _getApplicationChannelText( service, channel );
-  });
+  env.addFilter('getApplicationChannelText', _getApplicationChannelText);
+  
 
 
 
     //
     // GET CERTIFICATE FULFILMENT FUNCTION
     //
-    function _getCertificateFulfilmentText( fulfilment ) {
-
-      let txt = '';
+    const CERTIFICATE_FULFILMENT_MAP = {
+      email: 'Email',
+      post: 'Post'
+    };
     
-      switch ( fulfilment ) {
-    
-        case 'email':
-          txt = 'Email';
-          break;
-    
-        case 'post':
-          txt = 'Post';
-          break;
-      }
-    
-      return txt;
+    function _getCertificateFulfilmentText(fulfilment) {
+      return CERTIFICATE_FULFILMENT_MAP[fulfilment];
     }
-  
-
-  // 
-  // GET CERTIFICATE FULFILMENT TEXT FILTER
-  //
-  env.addFilter('getCertificateFulfilmentText', function ( fulfilment ) {
-    return _getCertificateFulfilmentText( fulfilment );
-  });
+    
+    env.addFilter('getCertificateFulfilmentText', _getCertificateFulfilmentText);    
 
 
 

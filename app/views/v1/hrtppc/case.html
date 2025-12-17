@@ -49,15 +49,11 @@
             },
             {
               key: { text: 'Channel' },
-              value: { html: 'Online' }
+              value: { text: patient.applicationChannel or 'online' | getApplicationChannelText }
             },
             {
-              key: {
-                text: "Fulfilment"
-              },
-              value: {
-                html: "Email"
-              }
+              key: { text: 'Fulfilment' },
+              value: { text: patient.certificateFulfilment or 'email' | getCertificateFulfilmentText }
             },
             {
               key: {
